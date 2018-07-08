@@ -3,21 +3,21 @@
 
 <head>
   <!-- Title SEO -->
-  <title>devmattb - Projects</title>   
+  <title>devmattb - Projects</title>
   <meta itemprop="name" content="devmattb - Projects">
   <meta property="og:title" content="devmattb - Projects">
-  <meta name="twitter:title" content="devmattb - Projects">  
+  <meta name="twitter:title" content="devmattb - Projects">
 
   <!-- STANDARD HEADER -->
   <?php include("../includes/header.html") ?>
-    
+
   <!-- DEVMATTB CSS -->
-  <link type="text/css" rel="stylesheet" href="../css/stylesheet.css">   
-    
+  <link type="text/css" rel="stylesheet" href="../css/stylesheet.css">
+
   <script>
-  
+
       $(document).ready(function(){
-      
+
         // Init
         $(".button-collapse").sideNav({'closeOnClick' : true});
         $(".parallax").parallax();
@@ -29,43 +29,46 @@
           }, function() {
             $(this).children("h3").removeClass("hidden");
           });
-             
+
       });
-      
+
   </script>
-    
+
 </head>
 
 <body>
-    
-    <?php 
 
-        include("../includes/modals.html"); 
+    <?php
+
+        include("../includes/modals.html");
         include("../includes/nav.html");
 
     ?>
 
+  <!-- BKG IMG & OVERLAY -->
+  <div class="bkgPageImg"><div class="bkgPageOverlay"></div></div>
+
   <!-- PROJECT HOLDER -->
-  <div class="col s12 row">
-      
+  <div class="col s12 row white-text">
+
       <!-- ONGOING -->
       <div class="col s12 row">
         <div class="col s12">
-            
+
             <!-- LARGE -->
             <h1 class="center hide-on-med-and-down">
               ONGOING:
             </h1>
-            
+
             <h1 style="font-size: 35px;" class="center hide-on-large-only hide-on-small-only">
               ONGOING:
             </h1>
-            
+
             <!-- SMALL -->
             <h1 style="font-size: 26px;" class="center hide-on-med-and-up">
               ONGOING:
             </h1>
-            
+
         </div>
           <div class="col s3"></div><!-- DUMMY -->
           <div class="col s6 divider">
@@ -73,13 +76,13 @@
           <div class="col s3"></div><!-- DUMMY -->
       </div>
 
-    
+
       <div class="col s2 hide-on-small-only"></div><!-- DUMMY -->
       <div class="col s9 row center hide-on-small-only">
 
         <!-- PROJECT ITEM #1 LARGE/MEDIUM -->
         <a href="indoor-navigation/">
-        
+
             <div class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
                 <h3 style="top: 50px;" class="center">
                     INDOOR NAVIGATION (AR/AI)
@@ -89,7 +92,7 @@
                 </div>
             </div>
         </a>
-          
+
         <!-- PROJECT ITEM #2 LARGE/MEDIUM -->
         <a href="study-app/">
             <div class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
@@ -101,10 +104,10 @@
                 </div>
             </div>
         </a>
-        
+
       </div>
       <div class="col s1 hide-on-small-only"></div><!-- DUMMY -->
-      
+
       <div class="col s12 row center hide-on-med-and-up">
 
       <a href="indoor-navigation/">
@@ -118,7 +121,7 @@
             </div>
         </div>
       </a>
-          
+
         <!-- PROJECT ITEM #2 SMALL -->
         <a href="study-app/">
             <div style="height: 250px" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
@@ -130,29 +133,29 @@
                 </div>
             </div>
         </a>
-        
+
 
       </div>
-      
+
       <!-- FINISHED -->
-      
+
       <div class="col s12 row">
         <div class="col s12">
-            
+
             <!-- LARGE -->
             <h1 class="center hide-on-med-and-down">
               FINISHED:
             </h1>
-            
+
             <h1 style="font-size: 35px;" class="center hide-on-large-only hide-on-small-only">
               FINISHED:
             </h1>
-            
+
             <!-- SMALL -->
             <h1 style="font-size: 26px;" class="center hide-on-med-and-up">
               FINISHED:
             </h1>
-            
+
         </div>
           <div class="col s3"></div><!-- DUMMY -->
           <div class="col s6 divider">
@@ -160,13 +163,13 @@
           <div class="col s3"></div><!-- DUMMY -->
       </div>
 
-    
+
       <div class="col s2 hide-on-small-only"></div><!-- DUMMY -->
       <div class="col s9 row center hide-on-small-only">
 
         <!-- PROJECT ITEM #1 LARGE/MEDIUM -->
         <a href="chipkit-tetris/">
-        
+
             <div class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
                 <h3 class="center">
                     CHIPKIT TETRIS
@@ -176,7 +179,7 @@
                 </div>
             </div>
         </a>
-          
+
         <!-- PROJECT ITEM #2 LARGE/MEDIUM -->
         <a href="crm/">
             <div class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
@@ -188,10 +191,10 @@
                 </div>
             </div>
         </a>
-        
+
       </div>
       <div class="col s1 hide-on-small-only"></div><!-- DUMMY -->
-      
+
       <div class="col s12 row center hide-on-med-and-up">
 
       <a href="chipkit-tetris/">
@@ -205,7 +208,7 @@
             </div>
         </div>
       </a>
-          
+
         <!-- PROJECT ITEM #2 SMALL -->
         <a href="crm/">
             <div style="height: 250px" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
@@ -217,12 +220,12 @@
                 </div>
             </div>
         </a>
-        
+
 
       </div>
-      
+
   </div>
-    
+
 </body>
 
 

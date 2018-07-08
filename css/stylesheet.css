@@ -37,13 +37,13 @@
       .input-field input:focus + label {
        color: #F93822 !important;
       }
-      
+
       /* label underline focus color */
       .input-field input:focus {
        border-bottom: 1px solid #F93822 !important;
        box-shadow: 0 1px 0 0 #F93822 !important
       }
-      
+
         /* label focus color */
       .input-field textarea:focus + label {
         color: #F93822 !important;
@@ -53,7 +53,7 @@
         border-bottom: 1px solid #F93822 !important;
         box-shadow: 0 1px 0 0 #F93822 !important
       }
-      
+
       .checkbox-orange[type="checkbox"].filled-in:checked + label:after{
          border: 2px solid #F93822;
          background-color: #F93822;
@@ -91,34 +91,34 @@
         font-weight: 100;
         font-size: 15px;
       }
-      
+
       nav .fa, #mobile-demo .fa {
         font-size: 18px!important;
       }
-      
+
       #mobile-demo .fa {
         margin-right: 5px;
         margin-top: -1px;
       }
-      
+
       #desktop-demo {
         position: relative;
         top: -2px;
         left: -10px;
       }
-      
+
       #desktop-demo li:hover {
         border-bottom: 2px solid #F93822;
       }
-      
+
       #desktop-demo li{transition: 0.1s;}
-      
+
       #desktop-demo .socialMediaIcon:hover {
         border-bottom: 0px solid transparent;
         transform:scale(1.25);
         color: #fff;
       }
-      
+
       .btn:hover, .btn-large:hover {
         background: #000!important;
       }
@@ -128,39 +128,39 @@
       .btn:clicked, .btn-large:clicked {
         background: #000!important;
       }
-      
+
       .btn:after, .btn-large:after {
         background: #000!important;
       }
-      
+
       .btn:focus, .btn-large:focus {
         background: #F93822;
       }
-      
+
       h1, h2, h3, h4, h5 {
         font-family: "Oswald";
       }
-      
-      .flow-text { 
+
+      .flow-text {
         font-weight: 300;
         font-family: "Open Sans";
       }
-      
+
       .hidden{ display: none; }
-      
+
       .webOrange {
         background: rgb(249, 56, 34);
       }
-      
+
       .webTextOrange {
         color: rgb(249, 56, 34)!important;
       }
-      
+
       .orangeOpacity {
         background: rgba(249, 56, 34,0.7);
         transition: 0.1s;
       }
-    
+
       .orangeOpacity:hover {
         background: rgba(255, 255, 255,0.0);
       }
@@ -176,12 +176,12 @@
         margin-top: 0px;
         transition: 0.1s;
       }
-      
+
       .projectBox:hover {
         transform: scale(1.02);
         cursor: pointer;
       }
-      
+
       .projectBox h3, .projectBoxSmall h3 {
         position: relative;
         top: 9vmin;
@@ -204,25 +204,25 @@
           border-radius: 100%;
           padding: 10px 25px;
       }
-      
+
       #contactModal .fa {
         font-size: 55px;
         margin: 10px;
         margin-top: 20px;
         transition: 0.1s;
       }
-      
+
       #contactModal .fa:hover {
         cursor: pointer;
         transform: scale(1.1);
         color: #000!important;
       }
-      
+
       .flow-text {
         font-weight: 300;
         font-family: "Open Sans";
       }
-      
+
       .coreSubject {
         position:relative;
         top: 50px;
@@ -231,30 +231,30 @@
         color: #fff;
         transition: 0.1s;
       }
-      
+
       .coreSubject:hover {
         cursor:pointer;
       }
-      
+
       .coreSubject h3 {
         position: relative;
         top: 23vmin;
         font-size: 11vmin;
       }
-      
+
       .techSubject {
         background-color: #F93822;
       }
-      
+
       .leadershipSubject {
         background-color: #000;
       }
-      
+
       .techSubject:hover {
         background-color: #fff;
         color: #F93822;
       }
-      
+
       .leadershipSubject:hover {
         background-color: #fff;
         color: #000;
@@ -357,7 +357,7 @@
           width: 10em; height: 10.32em;
           transform: rotate(-30deg) skewX(30deg);
           border-radius: .5em;
-            
+
         }
         .r-hex *, .r-hex *:before {
           display: block;
@@ -501,8 +501,8 @@
         font-size: 30px!important;
     }
 
-    .breadcrumb:hover  {   
-        color: #F93822; 
+    .breadcrumb:hover  {
+        color: #F93822;
     }
 
     .breadcrumb:before {
@@ -537,4 +537,18 @@
 
 .allPgs p {
     transition: 1;
+}
+
+.bkgPageImg {
+  position: fixed;
+  background-image: url("../img/page-bkg.jpg");
+  height: 1250px;
+  width: 100%;
+  z-index: -1;
+}
+
+.bkgPageOverlay {
+    background-color: rgba(0, 0, 0,0.8)!important;
+    height: 1250px;
+    width: 100%;
 }
