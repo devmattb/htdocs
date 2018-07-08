@@ -1,0 +1,540 @@
+    @keyframes flickerAnimation {
+      0%   { opacity:1; }
+      50%  { opacity:0; }
+      100% { opacity:1; }
+    }
+    @-o-keyframes flickerAnimation{
+      0%   { opacity:1; }
+      50%  { opacity:0; }
+      100% { opacity:1; }
+    }
+    @-moz-keyframes flickerAnimation{
+      0%   { opacity:1; }
+      50%  { opacity:0; }
+      100% { opacity:1; }
+    }
+    @-webkit-keyframes flickerAnimation{
+      0%   { opacity:1; }
+      50%  { opacity:0; }
+      100% { opacity:1; }
+    }
+    .animate-flicker {
+       -webkit-animation: flickerAnimation 4s infinite;
+       -moz-animation: flickerAnimation 4s infinite;
+       -o-animation: flickerAnimation 4s infinite;
+        animation: flickerAnimation 4s infinite;
+    }
+
+    .smallHeader {
+        font-size: 25px;
+      }
+
+      .smallSubHeader {
+          font-size: 18px!important;
+      }
+
+        /* label focus color */
+      .input-field input:focus + label {
+       color: #F93822 !important;
+      }
+      
+      /* label underline focus color */
+      .input-field input:focus {
+       border-bottom: 1px solid #F93822 !important;
+       box-shadow: 0 1px 0 0 #F93822 !important
+      }
+      
+        /* label focus color */
+      .input-field textarea:focus + label {
+        color: #F93822 !important;
+      }
+      /* label underline focus color */
+      .input-field textarea:focus {
+        border-bottom: 1px solid #F93822 !important;
+        box-shadow: 0 1px 0 0 #F93822 !important
+      }
+      
+      .checkbox-orange[type="checkbox"].filled-in:checked + label:after{
+         border: 2px solid #F93822;
+         background-color: #F93822;
+      }
+
+      /* icon prefix focus color */
+      .input-field .prefix.active {
+        color: #F93822!important;
+      }
+
+    #homeBkg {
+        width: 100%;
+        height: 1000px;
+        color: #fff;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+        background-image: url(../img/home_bkg.jpg);
+        background-size: cover;
+    }
+
+    #homeBkg::after {
+        content: "";
+        width: 100%;
+        height: 1000px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: rgba(0,0,0,0.7);
+    }
+
+      nav ul li a {
+        font-family: "OSWALD";
+        font-weight: 100;
+        font-size: 15px;
+      }
+      
+      nav .fa, #mobile-demo .fa {
+        font-size: 18px!important;
+      }
+      
+      #mobile-demo .fa {
+        margin-right: 5px;
+        margin-top: -1px;
+      }
+      
+      #desktop-demo {
+        position: relative;
+        top: -2px;
+        left: -10px;
+      }
+      
+      #desktop-demo li:hover {
+        border-bottom: 2px solid #F93822;
+      }
+      
+      #desktop-demo li{transition: 0.1s;}
+      
+      #desktop-demo .socialMediaIcon:hover {
+        border-bottom: 0px solid transparent;
+        transform:scale(1.25);
+        color: #fff;
+      }
+      
+      .btn:hover, .btn-large:hover {
+        background: #000!important;
+      }
+      .btn:active, .btn-large:active {
+        background: #000!important;
+      }
+      .btn:clicked, .btn-large:clicked {
+        background: #000!important;
+      }
+      
+      .btn:after, .btn-large:after {
+        background: #000!important;
+      }
+      
+      .btn:focus, .btn-large:focus {
+        background: #F93822;
+      }
+      
+      h1, h2, h3, h4, h5 {
+        font-family: "Oswald";
+      }
+      
+      .flow-text { 
+        font-weight: 300;
+        font-family: "Open Sans";
+      }
+      
+      .hidden{ display: none; }
+      
+      .webOrange {
+        background: rgb(249, 56, 34);
+      }
+      
+      .webTextOrange {
+        color: rgb(249, 56, 34)!important;
+      }
+      
+      .orangeOpacity {
+        background: rgba(249, 56, 34,0.7);
+        transition: 0.1s;
+      }
+    
+      .orangeOpacity:hover {
+        background: rgba(255, 255, 255,0.0);
+      }
+
+      .orangeOpacitySmall {
+        background: rgba(249, 56, 34, 0.7);
+      }
+
+      .projectBox, .projectBoxSmall {
+        height: 30vmin;
+        color: #fff;
+        margin: 10px;
+        margin-top: 0px;
+        transition: 0.1s;
+      }
+      
+      .projectBox:hover {
+        transform: scale(1.02);
+        cursor: pointer;
+      }
+      
+      .projectBox h3, .projectBoxSmall h3 {
+        position: relative;
+        top: 9vmin;
+      }
+
+      .projectImgBox {
+
+          height: 350px;
+      }
+
+      .projectCategoryIcon {
+          font-size: 100px;
+          color: #F93822;
+          padding: 15px 40px;
+      }
+
+      .projectCategoryIconSmall {
+          color: #F93822;
+          font-size: 60px;
+          border-radius: 100%;
+          padding: 10px 25px;
+      }
+      
+      #contactModal .fa {
+        font-size: 55px;
+        margin: 10px;
+        margin-top: 20px;
+        transition: 0.1s;
+      }
+      
+      #contactModal .fa:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        color: #000!important;
+      }
+      
+      .flow-text {
+        font-weight: 300;
+        font-family: "Open Sans";
+      }
+      
+      .coreSubject {
+        position:relative;
+        top: 50px;
+        height: 64.4vmin;
+        z-index: 4;
+        color: #fff;
+        transition: 0.1s;
+      }
+      
+      .coreSubject:hover {
+        cursor:pointer;
+      }
+      
+      .coreSubject h3 {
+        position: relative;
+        top: 23vmin;
+        font-size: 11vmin;
+      }
+      
+      .techSubject {
+        background-color: #F93822;
+      }
+      
+      .leadershipSubject {
+        background-color: #000;
+      }
+      
+      .techSubject:hover {
+        background-color: #fff;
+        color: #F93822;
+      }
+      
+      .leadershipSubject:hover {
+        background-color: #fff;
+        color: #000;
+      }
+
+    .breakBlock h3, .breakBlock h5, .breakBlock h1{
+        position: relative;
+        top: 10px;
+    }
+
+    .breakBlock {
+        position: relative;
+        top: 50px;
+        padding: 10px;
+    }
+
+    .breakBlockLarge {
+        height: 220px;
+    }
+    .breakBlockMedium {
+        height: 175px;
+    }
+    .breakBlockSmall {
+        height: 125px;
+    }
+
+    .partnerLogoDiv {
+        overflow: hidden;
+        position: relative;
+        top: 50px;
+    }
+
+    .callToActionDiv {
+        color: #fff;
+        position: relative;
+    }
+
+
+    @media screen and (min-width: 200px) {
+        #myExpertise {
+            z-index: 100;
+            position: relative;
+            top: 50px;
+            min-height: 1000px;
+            overflow-x: hidden;
+        }
+    }
+
+    @media screen and (min-width: 600px) {
+        #myExpertise {
+            z-index: 100;
+            position: relative;
+            top: 50px;
+            min-height: 1300px;
+            overflow-x: hidden;
+        }
+    }
+
+    @media screen and (min-width: 980px) {
+        #myExpertise {
+            z-index: 100;
+            position: relative;
+            top: 50px;
+            min-height: 750px;
+            overflow-x: hidden;
+        }
+    }
+
+    .langLibsAndFrameworks {
+        position: absolute;
+        bottom: 0px;
+    }
+
+    .langLibsAndFrameworks img {
+        width: 100px;
+        margin: 0px 0px 25px 20px;
+        transition: 0.2s;
+    }
+
+    .langLibsAndFrameworks img:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+    .callToActionBtn {
+        color: #fff;
+        background-color: #000;
+    }
+
+    .callToActionBtn:hover {
+        color: #000;
+        background-color: #fff!important;
+    }
+
+    @media screen and (min-width: 200px) {
+        .r-hex {
+          overflow: hidden;
+          display: inline-block;
+          margin: 3em 0;
+          width: 10em; height: 10.32em;
+          transform: rotate(-30deg) skewX(30deg);
+          border-radius: .5em;
+            
+        }
+        .r-hex *, .r-hex *:before {
+          display: block;
+          overflow: hidden;
+          width: inherit; height: inherit;
+          border-radius: inherit;
+          font-size: 20.8px;
+        }
+        .r-hex-inner {
+          transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+          transition: opacity .75s;
+          cursor: pointer;
+        }
+        .r-hex:first-child .r-hex-inner:before, .r-hex-inner-2 {
+          transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+          background: #F93822;
+          content: '';
+        }
+
+        .r-hex2:first-child .r-hex-inner2:before, .r-hex-inner-22 {
+          transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+          background: #fff;
+          content: '';
+        }
+
+        .r-hex-inner-2:before {
+          margin-top: -1.5em;
+          height: 20em;
+          transform: skewX(-30deg) rotate(-90deg);
+          /*background: url(http://images.fineartamerica.com/images-medium-large/sumatran-tiger-cub--panthera-tigris-sumatrae-life-on-white.jpg);*/
+          background-size: cover;
+          line-height: 20em;
+          text-align: center;
+        }
+        .r-hex-inner-2:hover {  background: #fff;}
+        .r-hex-inner-22:hover {  background: #000;}
+        .r-hex-text {
+            position: relative;
+            left: 48px;
+            transform: skewX(0deg) rotate(-59.5deg) skewX(30deg);
+        }
+
+    }
+
+    @media screen and (min-width: 600px) {
+        .r-hex {
+          overflow: hidden;
+          display: inline-block;
+          margin: 2em 0;
+          width: 16em; height: 17.32em;
+          transform: rotate(-30deg) skewX(30deg);
+          border-radius: .5em;
+        }
+        .r-hex *, .r-hex *:before {
+          display: block;
+          overflow: hidden;
+          width: inherit; height: inherit;
+          border-radius: inherit;
+          font-size: 40.8px;
+        }
+        .r-hex-inner {
+          transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+          transition: opacity .75s;
+          cursor: pointer;
+        }
+        .r-hex:first-child .r-hex-inner:before, .r-hex-inner-2 {
+          transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+          background: #F93822;
+          content: '';
+        }
+
+        .r-hex2:first-child .r-hex-inner2:before, .r-hex-inner-22 {
+          transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+          background: #fff;
+          content: '';
+        }
+
+        .r-hex-inner-2:before {
+          margin-top: -1.5em;
+          height: 20em;
+          transform: skewX(-30deg) rotate(-90deg);
+          /*background: url(http://images.fineartamerica.com/images-medium-large/sumatran-tiger-cub--panthera-tigris-sumatrae-life-on-white.jpg);*/
+          background-size: cover;
+          line-height: 20em;
+          text-align: center;
+        }
+        .r-hex-inner-2:hover {  background: #fff;}
+        .r-hex-inner-22:hover {  background: #000;}
+        .r-hex-text {
+            position: relative;
+            left: 92px;
+            transform: skewX(0deg) rotate(-59.5deg) skewX(30deg);
+        }
+
+    }
+
+    .workedWith {
+        position: relative;
+        height: 200px!important;
+        margin-bottom: -300px!important;
+    }
+
+    .howIWorkTitle {
+        position: relative;
+        top: 50px;
+    }
+
+
+    @media screen and (min-width: 200px) {
+        .howIWorkCover {
+            position: fixed;
+            z-index: 15;
+            top: 10px!important;
+        }
+    }
+
+    @media screen and (min-width: 600px) {
+        .howIWorkCover {
+            position: absolute;
+            z-index: 6;
+        }
+    }
+
+    .howIWorkCover {
+        height: 580px;
+        width: 0%;
+        transition: 0.5s;
+        top: 50px;
+        left: 0px;
+        color: #000!important;
+    }
+
+    .closeHowIWorkCover,.breadcrumb {
+        transition: 0.1s;
+        color: #000;
+    }
+
+    .closeHowIWorkCover:hover {
+        cursor: pointer;
+        color: #F93822;
+        font-size: 30px!important;
+    }
+
+    .breadcrumb:hover  {   
+        color: #F93822; 
+    }
+
+    .breadcrumb:before {
+        color: #000;
+    }
+
+    .breadcrumb, .breadcrumb:last-child {
+       color: #000;
+    }
+
+    .partnerLogoDiv img:hover {
+        cursor: pointer;
+        opacity: 0.5
+    }
+
+    .expQuaDiv:hover {
+        cursor: pointer;
+        transform: scale(1.1)!important;
+    }
+
+    @media screen and (min-width: 600px) {
+        .howIWorkDiv {
+            height:740px;
+        }
+    }
+
+    @media screen and (min-width: 980px) {
+        .howIWorkDiv {
+            height: 480px;
+        }
+    }
+
+.allPgs p {
+    transition: 1;
+}

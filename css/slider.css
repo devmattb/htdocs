@@ -1,0 +1,214 @@
+#slider {
+   height: 140px; /* Sliderns höjd */
+   width: 140%; /* Sliderns bredd */
+   overflow: visible; /* Döljer de bilder som inte ska visas */
+   position: relative; /* Placerar Slidern realativ till andra element */
+   left: -50px;
+   top: -20px;
+}
+#mask {
+   overflow: hidden; /* Döljer de bilder som inte ska visas */
+   height: 140px; /* Sliderns höjd */
+}
+#slider ul {
+   margin: 0; /* Gör att bilderna ligger kant-i-knat vid animationerna */
+   padding: 0; /* Gör att bilderna ligger kant-i-knat vid animationerna */
+   position: relative; /* Gör att bilderna ligger kant-i-knat vid animationerna */
+}
+#slider li {
+   width: 400px;  /* Bildernas bredd */
+   height: 140px; /* Bildernas höjd */
+   position: absolute;
+   left: -405px; /* Bildernas startposition(utanför slidern) */
+   list-style: none; /* Tar bort list-iconen till vänster om bilderna */
+}
+#slider li.firstanimation {
+   -webkit-animation: cycle 15s linear infinite; /* Första bildens animation(Anpassat för Safari och Chrome) */
+   -moz-animation: cycle 15s linear infinite; /* Första bildens animation(Anpassat för Firefox) */
+   animation: cycle 15s linear infinite; /* Första bildens animation */
+}
+#slider li.secondanimation {
+   -webkit-animation: cycletwo 15s linear infinite; /* Andra bildens animation(Anpassat för Safari och Chrome) */
+   -moz-animation: cycletwo 15s linear infinite; /* Andra bildens animation(Anpassat för Firefox) */
+   animation: cycletwo 15s linear infinite; /* Andra bildens animation */
+}
+#slider li.thirdanimation {
+   -webkit-animation: cyclethree 15s linear infinite; /* Tredje bildens animation(Anpassat för Safari och Chrome) */
+   -moz-animation: cyclethree 15s linear infinite; /* Tredje bildens animation(Anpassat för Firefox) */
+   animation: cyclethree 15s linear infinite; /* Tredje bildens animation */
+}
+#slider li.fourthanimation {
+   -webkit-animation: cyclefour 15s linear infinite; /* Fjärde bildens animation(Anpassat för Safari och Chrome) */
+   -moz-animation: cyclefour 15s linear infinite; /* Fjärde bildens animation(Anpassat för Firefox) */
+   animation: cyclefour 15s linear infinite; /* Fjärde bildens animation */
+}
+#slider li.fifthanimation {
+   -webkit-animation: cyclefive 15s linear infinite; /* Femte bildens animation(Anpassat för Safari och Chrome) */
+   -moz-animation: cyclefive 15s linear infinite; /* Femte bildens animation(Anpassat för Firefox) */
+   animation: cyclefive 15s linear infinite; /* Femte bildens animation */
+}
+
+
+@-webkit-keyframes cycle {
+	0% { left: 300px; opacity:1; z-index: 0; }
+	12% { left: 600px; opacity:1; }
+	20% { left: 805px; opacity:0; z-index: 0; }
+	21% { left: -405px; opacity:0; z-index: -1; }
+	68% { left: -405px; opacity:0; z-index: 0; } 
+	76% { left: -200px; opacity:1; }
+	88% { left: 100px; opacity:1; }
+	100% { left: 300px; opacity:1; z-index: 0; }
+}
+@-webkit-keyframes cycletwo {
+	0% { left: -100px; opacity:1; z-index: 0; }
+    8% { left: 100px; opacity:1; }
+    20% { left: 300px; opacity:1; }
+    32% { left: 600px; opacity: 1; }
+    40% { left: 805px; opacity:0; z-index: 0; } 
+    41% { left: -405px; opacity:0; z-index: -1; }
+    88% { left: -405px; opacity: 0; z-index: 0; }
+    96% { left: -200px; opacity: 1; }
+    100% { left: -100px; opacity: 1; z-index: 0; }
+}
+@-webkit-keyframes cyclethree {
+   0% { left: -405px; opacity: 0; z-index: 0; }
+   8% { left: -405px; opacity: 0; }
+   16% { left: -200px; opacity: 1; }
+   28% { left: 100px; opacity: 1; }
+   40% { left: 300px; opacity: 1; }
+   52% { left: 600px; opacity: 1; }
+   60% { left: 805px; opacity: 0; z-index: 0; }
+   61% { left: -405px; opacity: 0; z-index: -1; }
+   100% { left: -405px; opacity: 0; z-index: 0; }
+}
+@-webkit-keyframes cyclefour {
+   0% { left: -405px; opacity: 0; z-index: 0; }
+   28% { left: -405px; opacity: 0; }
+   36% { left: -200px; opacity: 1; }
+   48% { left: 100px; opacity: 1; }
+   60% { left: 300px; opacity: 1; }
+   72% { left: 600px; opacity: 1; }
+   80% { left: 805px; opacity: 0; z-index: 0; }
+   81% { left: -405px; opacity: 0; z-index: -1; }
+   100% { left: -405px; opacity: 0; z-index: 0; }
+}
+@-moz-keyframes cycle {
+	0% { left: 300px; opacity:1; z-index: 0; }
+	12% { left: 600px; opacity:1; }
+	20% { left: 805px; opacity:0; z-index: 0; }
+	21% { left: -405px; opacity:0; z-index: -1; }
+	68% { left: -405px; opacity:0; z-index: 0; } 
+	76% { left: -200px; opacity:1; }
+	88% { left: 100px; opacity:1; }
+	100% { left: 300px; opacity:1; z-index: 0; }
+}
+@-moz-keyframes cycletwo {
+	0% { left: -100px; opacity:1; z-index: 0; }
+    8% { left: 100px; opacity:1; }
+    20% { left: 300px; opacity:1; }
+    32% { left: 600px; opacity: 1; }
+    40% { left: 805px; opacity:0; z-index: 0; } 
+    41% { left: -405px; opacity:0; z-index: -1; }
+    88% { left: -405px; opacity: 0; z-index: 0; }
+    96% { left: -200px; opacity: 1; }
+    100% { left: -100px; opacity: 1; z-index: 0; }
+}
+@-moz-keyframes cyclethree {
+   0% { left: -405px; opacity: 0; z-index: 0; }
+   8% { left: -405px; opacity: 0; }
+   16% { left: -200px; opacity: 1; }
+   28% { left: 100px; opacity: 1; }
+   40% { left: 300px; opacity: 1; }
+   52% { left: 600px; opacity: 1; }
+   60% { left: 805px; opacity: 0; z-index: 0; }
+   61% { left: -405px; opacity: 0; z-index: -1; }
+   100% { left: -405px; opacity: 0; z-index: 0; }
+}
+@-moz-keyframes cyclefour {
+   0% { left: -405px; opacity: 0; z-index: 0; }
+   28% { left: -405px; opacity: 0; }
+   36% { left: -200px; opacity: 1; }
+   48% { left: 100px; opacity: 1; }
+   60% { left: 300px; opacity: 1; }
+   72% { left: 600px; opacity: 1; }
+   80% { left: 805px; opacity: 0; z-index: 0; }
+   81% { left: -405px; opacity: 0; z-index: -1; }
+   100% { left: -405px; opacity: 0; z-index: 0; }
+}
+
+@keyframes cycle {
+	0% { left: 300px; opacity:1; z-index: 0; }
+	12% { left: 600px; opacity:1; }
+	20% { left: 805px; opacity:0; z-index: 0; }
+	21% { left: -405px; opacity:0; z-index: -1; }
+	68% { left: -405px; opacity:0; z-index: 0; } 
+	76% { left: -200px; opacity:1; }
+	88% { left: 100px; opacity:1; }
+	100% { left: 300px; opacity:1; z-index: 0; }
+}
+@keyframes cycletwo {
+	0% { left: -100px; opacity:1; z-index: 0; }
+    8% { left: 100px; opacity:1; }
+    20% { left: 300px; opacity:1; }
+    32% { left: 600px; opacity: 1; }
+    40% { left: 805px; opacity:0; z-index: 0; } 
+    41% { left: -405px; opacity:0; z-index: -1; }
+    88% { left: -405px; opacity: 0; z-index: 0; }
+    96% { left: -200px; opacity: 1; }
+    100% { left: -100px; opacity: 1; z-index: 0; }
+}
+@keyframes cyclethree {
+   0% { left: -405px; opacity: 0; z-index: 0; }
+   8% { left: -405px; opacity: 0; }
+   16% { left: -200px; opacity: 1; }
+   28% { left: 100px; opacity: 1; }
+   40% { left: 300px; opacity: 1; }
+   52% { left: 600px; opacity: 1; }
+   60% { left: 805px; opacity: 0; z-index: 0; }
+   61% { left: -405px; opacity: 0; z-index: -1; }
+   100% { left: -405px; opacity: 0; z-index: 0; }
+}
+@keyframes cyclefour {
+   0% { left: -405px; opacity: 0; z-index: 0; }
+   28% { left: -405px; opacity: 0; }
+   36% { left: -200px; opacity: 1; }
+   48% { left: 100px; opacity: 1; }
+   60% { left: 300px; opacity: 1; }
+   72% { left: 600px; opacity: 1; }
+   80% { left: 805px; opacity: 0; z-index: 0; }
+   81% { left: -405px; opacity: 0; z-index: -1; }
+   100% { left: -405px; opacity: 0; z-index: 0; }
+}
+#slider .tooltip { /* Toollipens egenskaper */
+   background: rgba(0,0,0,0.7);
+   width: 300px;
+   height: 60px;
+   position: relative;
+   bottom: 75px;
+   left: -320px;
+   transition: all 0.3s ease-in-out;
+}
+#slider:hover li,
+#slider:hover { /* Pausar animmationen(slidern) när musen dras över slidern */
+   -webkit-animation-play-state: paused;
+   -moz-animation-play-state: paused;
+   animation-play-state: paused;
+}
+#slider .tooltip h1 { /* Tooltiptextens egenskaper */
+   color: #fff;
+   font-size: 24px;
+   font-weight: 300;
+   line-height: 60px;
+   padding: 0 0 0 10px;
+   text-align: Right;
+   margin-right: 10px;
+}
+#slider li#first:hover .tooltip,
+#slider li#second:hover .tooltip,
+#slider li#third:hover .tooltip,
+#slider li#fourth:hover .tooltip,
+#slider li#fifth:hover .tooltip,
+#slider li#sixth:hover .tooltip, 
+#slider li#seventh:hover .tooltip{
+   left: 0px;  /* Visar respektive tooltip när musen dras över respektive bild */
+}
