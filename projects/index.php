@@ -1,12 +1,40 @@
+<?php
+  // PHP LIB
+  require_once("../php/functions.php");
+  $db = getDB(); // getDB connection on this page.
+
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
+
   <!-- Title SEO -->
-  <title>devmattb - Projects</title>
-  <meta itemprop="name" content="devmattb - Projects">
-  <meta property="og:title" content="devmattb - Projects">
-  <meta name="twitter:title" content="devmattb - Projects">
+  <?php
+    if ( isset($_GET["id"]) && $_GET["id"] != 0 ) {
+      $query = 'SELECT * FROM projectPosts WHERE id="'.$_GET["id"].'"';
+      $data = getContents($db, $query);
+      $title = "";
+      foreach($data as $row) {
+        $title = $row["title"];
+      }
+      echo '
+        <title>devmattb - '.$title.'</title>
+        <meta itemprop="name" content="devmattb - '.$title.'">
+        <meta property="og:title" content="devmattb - '.$title.'">
+        <meta name="twitter:title" content="devmattb - '.$title.'">
+      ';
+    } else {
+
+      echo '
+        <title>devmattb - Projects</title>
+        <meta itemprop="name" content="devmattb - Projects">
+        <meta property="og:title" content="devmattb - Projects">
+        <meta name="twitter:title" content="devmattb - Projects">
+      ';
+    }
+  ?>
 
   <!-- STANDARD HEADER -->
   <?php include("../includes/header.html") ?>
@@ -17,11 +45,13 @@
   <script>
 
       $(document).ready(function(){
-
         // Init
         $(".button-collapse").sideNav({'closeOnClick' : true});
         $(".parallax").parallax();
         $(".modal").modal();
+        $("#projectNavItem").css("border-bottom", "2px solid #F93822");
+        $(".brand-logo").attr("src", "logo_white_transparent.png");
+
         $("#projectNavItem").css("border-bottom", "2px solid #F93822");
         $(".projectBox").hover(
           function() {
@@ -29,7 +59,6 @@
           }, function() {
             $(this).children("h3").removeClass("hidden");
           });
-
       });
 
   </script>
@@ -43,190 +72,460 @@
         include("../includes/modals.html");
         include("../includes/nav.html");
 
+        // Display Projects Page, Or Project Details Page?
+        if (!isset($_GET["id"]) || $_GET["id"] == 0 ) {
+          // Fetch all projects!
+          $queryOngoing = "SELECT * FROM projectPosts WHERE ongoingProject=true ORDER BY createdAt DESC";
+          $dataOngoing = getContents($db, $queryOngoing);
+
+          $queryFinished = "SELECT * FROM projectPosts WHERE ongoingProject=false ORDER BY createdAt DESC";
+          $dataFinished = getContents($db, $queryFinished);
+          // Display Projects Page:
+          echo '
+            <!-- BKG IMG & OVERLAY -->
+            <div class="bkgPageImg"><div class="bkgPageOverlay"></div></div>
+
+            <!-- PROJECT HOLDER -->
+            <div class="row">
+            <div class="col s12 white-text">
+
+                <!-- ONGOING -->
+                <div class="col s12 row">
+                  <div class="col s12">
+
+                      <!-- LARGE -->
+                      <h1 class="center hide-on-med-and-down">
+                        ONGOING:
+                      </h1>
+
+                      <h1 style="font-size: 35px;" class="center hide-on-large-only hide-on-small-only">
+                        ONGOING:
+                      </h1>
+
+                      <!-- SMALL -->
+                      <h1 style="font-size: 26px;" class="center hide-on-med-and-up">
+                        ONGOING:
+                      </h1>
+
+                      </div>
+                      <div class="col s3"></div><!-- DUMMY -->
+                      <div class="col s6 divider"></div>
+                      <div class="col s3"></div><!-- DUMMY -->
+
+                </div>
+                ';
+                $numReps = 0;
+                foreach($dataOngoing as $row) {
+                  if ($numReps == 0) {
+                    echo '
+                    <div class="col s1 m1 hide-on-small-only"></div><!-- DUMMY -->
+                    <div class="col s10 m10 center hide-on-small-only">
+
+                      <!-- PROJECT ITEM #1 LARGE/MEDIUM -->
+                      <a href="?id='.$row["id"].'">
+                          <div class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
+                              <h3 class="center">
+                                  '.$row["title"].'
+                              </h3>
+                              <div class="parallax">
+                                  <img src="'.$row["projectCoverImgSrc"].'">
+                              </div>
+                          </div>
+                      </a>';
+                    // numReps incremented on last echo.
+                  } else if ($numReps == 1) {
+                    echo '
+                      <!-- PROJECT ITEM #2 LARGE/MEDIUM -->
+                      <a href="?id='.$row["id"].'">
+                          <div class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
+                              <h3 class="center">
+                                  '.$row["title"].'
+                              </h3>
+                              <div class="parallax">
+                                  <img src="'.$row["projectCoverImgSrc"].'">
+                              </div>
+                          </div>
+                      </a>
+                    </div>'; // End LARGE/MED of project pair.
+                    // numReps reset on last echo.
+                  }
+                // Continue ... (Echo for small devices...)
+                if ($numReps == 0) {
+                  echo '
+                  <div class="col s1 m1 hide-on-small-only"></div><!-- DUMMY -->
+                  <div class="col s12 row center hide-on-med-and-up">
+                  <!-- PROJECT ITEM SMALL -->
+                  <a href="?id='.$row["id"].'">
+                      <div style="height: 250px" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
+                          <h3 style="top: 80px;" class="center">
+                              '.$row["title"].'
+                          </h3>
+                          <div class="parallax">
+                              <img src="'.$row["projectCoverImgSrc"].'">
+                          </div>
+                      </div>
+                  </a>';
+                  $numReps++; // Increment pairing
+                } else if ($numReps == 1) {
+                    echo '
+                      <!-- PROJECT ITEM #2 SMALL -->
+                      <a href="?id='.$row["id"].'">
+                          <div style="height: 250px" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
+                              <h3 style="top: 80px;" class="center">
+                                  '.$row["title"].'
+                              </h3>
+                              <div class="parallax">
+                                  <img src="'.$row["projectCoverImgSrc"].'">
+                              </div>
+                          </div>
+                      </a>
+                    </div>';  // End of SMALL project pair.
+                    $numReps = 0; // Reset pairing
+                }
+              } // end ONGOING foreach.
+
+                echo '
+                <!-- FINISHED -->
+                <div class="col s12 row">
+                  <div class="col s12">
+
+                      <!-- LARGE -->
+                      <h1 class="center hide-on-med-and-down">
+                        FINISHED:
+                      </h1>
+
+                      <h1 style="font-size: 35px;" class="center hide-on-large-only hide-on-small-only">
+                        FINISHED:
+                      </h1>
+
+                      <!-- SMALL -->
+                      <h1 style="font-size: 26px;" class="center hide-on-med-and-up">
+                        FINISHED:
+                      </h1>
+
+                  </div>
+                    <div class="col s3"></div><!-- DUMMY -->
+                    <div class="col s6 divider">
+                    </div>
+                    <div class="col s3"></div><!-- DUMMY -->
+                </div>
+                ';
+
+                $numReps2 = 0;
+                foreach($dataFinished as $row) {
+                  if ($numReps2 == 0) {
+                    echo '
+                    <div class="col s2 hide-on-small-only"></div><!-- DUMMY -->
+                    <div class="col s9 row center hide-on-small-only">
+
+                      <!-- PROJECT ITEM #1 LARGE/MEDIUM -->
+                      <a href="?id='.$row["id"].'">
+                          <div style="height: 250px" class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
+                              <h3 class="center">
+                                  CHIPKIT TETRIS
+                              </h3>
+                              <div class="parallax">
+                                  <img src="'.$row["projectCoverImgSrc"].'">
+                              </div>
+                          </div>
+                      </a>';
+                  } else if ($numReps2 == 1) {
+                      echo '
+                        <!-- PROJECT ITEM #2 LARGE/MEDIUM -->
+                        <a href="?id='.$row["id"].'">
+                            <div style="height: 250px" class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
+                                <h3 class="center">
+                                    CHIPKIT TETRIS
+                                </h3>
+                                <div class="parallax">
+                                    <img src="'.$row["projectCoverImgSrc"].'">
+                                </div>
+                            </div>
+                        </a>
+                      </div>';
+                  }
+                // Continue ... (Echo for small devices...)
+                if ($numReps2 == 0) {
+                echo '
+                <div class="col s1 hide-on-small-only"></div><!-- DUMMY -->
+                <div class="col s12 row center hide-on-med-and-up">
+
+                  <!-- PROJECT ITEM #1 SMALL -->
+                  <a href="?id='.$row["id"].'">
+                    <div style="height: 250px" class="col s6 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
+                        <h3 style="top: 80px;" class="center">
+                            CHIPKIT TETRIS
+                        </h3>
+                        <div class="parallax">
+                            <img src="'.$row["projectCoverImgSrc"].'">
+                        </div>
+                    </div>
+                  </a>';
+                  $numReps2++; // Increment pairing
+                } else if ($numReps2 == 1) {
+                    echo '
+                      <!-- PROJECT ITEM #2 SMALL -->
+                      <a href="?id='.$row["id"].'">
+                        <div style="height: 250px" class="col s6 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
+                            <h3 style="top: 80px;" class="center">
+                                CHIPKIT TETRIS
+                            </h3>
+                            <div class="parallax">
+                                <img src="'.$row["projectCoverImgSrc"].'">
+                            </div>
+                        </div>
+                      </a>
+                    </div>';
+                    $numReps2 = 0; // Reset pairing
+                  }
+              } // End Foreach FINISHED
+          echo '
+            </div>
+            </div>
+          '; // End PROJECT BROWSE div.
+        } else {
+          // Fetch only one project! $data is fetched in head, before <title>!
+          foreach($data as $row) {
+            $numVids = 0;
+            $title = $row["title"];
+            $subtitle = $row["subtitle"];
+            $whatText = $row["whatText"];
+            $whyText = $row["whyText"];
+            $howText = $row["howText"];
+            $projectCoverImgSrc = $row["projectCoverImgSrc"];
+            $createdBy = $row["createdBy"];
+            $createdAt = $row["createdAt"];
+            $ongoingProject = $row["ongoingProject"];
+
+            // If videos exist, get them too!
+            if (isset($row["videoLink1"])) {
+              $videoTitle1 = $row["videoTitle1"];
+              $videoCoverImg1 = $row["videoCoverImg1"];
+              $videoLink1 = $row["videoLink1"];
+              $numVids++;
+            }
+
+            if (isset($row["videoLink2"])) {
+              $videoTitle2 = $row["videoTitle2"];
+              $videoCoverImg2 = $row["videoCoverImg2"];
+              $videoLink2 = $row["videoLink2"];
+              $numVids++;
+            }
+
+            if (isset($row["videoLink3"])) {
+              $videoTitle3 = $row["videoTitle3"];
+              $videoCoverImg3 = $row["videoCoverImg3"];
+              $videoLink3 = $row["videoLink3"];
+              $numVids++;
+            }
+          }
+          // Display project info:
+          echo '
+          <!-- PROJECT HOLDER -->
+          <div class="col s12 row">
+
+              <div class="col s12 row">
+                <div class="col s12">
+
+                    <!-- LARGE -->
+                    <h1 class="center hide-on-med-and-down">
+                      '.$title.'
+                    </h1>
+
+                    <h1 style="font-size: 35px;" class="center hide-on-large-only hide-on-small-only">
+                      '.$title.'
+                    </h1>
+
+                    <!-- SMALL -->
+                    <h1 style="font-size: 26px;" class="center hide-on-med-and-up">
+                      '.$title.'
+                    </h1>
+
+                </div>
+                  <div class="col s3"></div><!-- DUMMY -->
+                  <div class="col s6 divider">
+                  </div>
+                  <div class="col s3"></div><!-- DUMMY -->
+              </div>
+
+
+              <div style="position:relative; top: -15px;" class="col s12 row center">
+                <h5 class="center hide-on-small-only">'.$subtitle.'</h5>
+                <h5 style="font-size:18px;" class="center hide-on-med-and-up">'.$subtitle.'</h5>
+              </div>
+
+              <div class="col s12 row center">
+
+                    <!-- IDEA, WHY, HOW? -->
+                    <div class="col s12 l4 row center projectCategory">
+
+                        <!-- LARGE -->
+                        <div class="hide-on-small-only">
+                            <i class="projectCategoryIcon fa fa-lightbulb-o"></i>
+                            <h3>WHAT</h3>
+                        </div>
+
+                        <!-- SMALL -->
+                        <div class="hide-on-med-and-up">
+                            <i class="projectCategoryIconSmall fa fa-lightbulb-o"></i>
+                            <h3 class="smallHeader">WHAT</h3>
+
+                        </div>
+
+                        <div class="col s10 offset-s1">
+
+                            <p class="flow-text">
+                                '.$whatText.'
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- IDEA, WHY, HOW? -->
+                    <div class="col s12 l4 row center projectCategory">
+
+                        <!-- LARGE -->
+                        <div class="hide-on-small-only">
+                            <i class="projectCategoryIcon fa fa-question-circle-o"></i>
+                            <h3>WHY</h3>
+                        </div>
+
+                        <div class="hide-on-med-and-up">
+                            <i class="projectCategoryIconSmall fa fa-question-circle-o"></i>
+                            <h3 class="smallHeader">WHY</h3>
+
+                        </div>
+
+                        <!-- SMALL -->
+                        <div class="col s10 offset-s1">
+
+                            <p class="flow-text">
+                                '.$whyText.'
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- IDEA, WHY, HOW? -->
+                    <div class="col s12 l4 row center projectCategory">
+
+                        <!-- LARGE -->
+                        <div class="hide-on-small-only">
+                            <i class="projectCategoryIcon fa fa-code"></i>
+                            <h3>HOW</h3>
+                        </div>
+
+                        <!-- SMALL -->
+                        <div class="hide-on-med-and-up">
+                            <i class="projectCategoryIconSmall fa fa-code"></i>
+                            <h3 class="smallHeader">HOW</h3>
+                        </div>
+
+                        <div class="col s10 offset-s1">
+
+                            <p class="flow-text">
+                                '.$howText.'
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div style="position: relative; top: 20px;" class="col s12 row">
+
+                        <div class="col s12">
+
+                          <!-- LARGE -->
+                          <h3 style="margin-left: 30px;" class="left hide-on-small-only">
+                              VIDEOS RELATED TO THIS CONTENT:
+                              <div style="margin-left: 30px; margin-top: 10px;" class="col l11 m11 offset-m1 divider"></div>
+                          </h3>
+
+                          <!-- SMALL -->
+                          <h3 style="margin-left: 30px;" class="smallSubHeader center hide-on-med-and-up">
+                              VIDEOS RELATED TO THIS CONTENT:
+                              <div style="margin-left: 6vmin; margin-top: 10px;" class="s9 offset-s2 divider"></div>
+                          </h3>
+
+                        </div>
+
+                        <div style="position:relative; top: 20px; left: 30px;" class="col s11 left">';
+                              // Create Project Footer:
+                              if ($numVids == 0) {
+                                echo '<p>No videos have been published yet.</p>';
+                              } else {
+                                for($i = 0; $i < $numVids; $i++ ) {
+                                  $vidLink = "";
+                                  $vidTitle = "";
+                                  $vidImgSrc = "";
+                                  if ($i == 0) {
+                                    $vidLink = $videoLink1;
+                                    $vidTitle = $videoTitle1;
+                                    $vidImgSrc = $videoCoverImg1;
+                                  } else if ($i == 1) {
+                                    $vidLink = $videoLink2;
+                                    $vidTitle = $videoTitle2;
+                                    $vidImgSrc = $videoCoverImg2;
+                                  } else if ($i == 2) {
+                                    $vidLink = $videoLink3;
+                                    $vidTitle = $videoTitle3;
+                                    $vidImgSrc = $videoCoverImg3;
+                                  }
+                                  echo '
+                                  <div class="col l12 m8 s12 row center hide-on-small-only">
+
+                                      <!-- LARGE/MEDIUM -->
+                                      <a target="_blank" href="'.$vidLink.'">
+
+                                          <div style="height: 230px" class="col m12 l4 projectBox z-depth-4 orangeOpacity parallax-container">
+                                              <h3 style="top: 30%;" class="center">
+                                                  '.$vidTitle.'
+                                              </h3>
+                                              <div class="parallax">
+                                                  <img src="'.$vidImgSrc.'">
+                                              </div>
+                                          </div>
+                                      </a>
+
+                                    </div>
+                                    <div class="col s1 hide-on-small-only"></div><!-- DUMMY -->
+
+                                    <div class="col s12 center hide-on-med-and-up">
+
+                                        <a target="_blank" href="'.$vidLink.'">
+                                          <div style="height: 100px" class="col s12 projectBoxSmall z-depth-4 parallax-container">
+
+                                              <h3 style="top: 22px; font-size: 14px;" class="center">
+                                                  '.$vidTitle.'
+                                              </h3>
+                                              <div class="parallax">
+                                                  <img src="'.$vidImgSrc.'">
+                                              </div>
+                                          </div>
+                                        </a>
+
+                                  ';
+                                } // End of for-loop
+                              }
+
+         // Echo closing tags...
+         echo '
+                            </div>
+                        </div>
+                    </div>
+              </div>
+              <div style="margin-top: 30px;" class="col s12 center">
+                <button class="btn-large webOrange white-text waves-light waves-effect">
+                  BROWSE ALL PROJECTS
+                </div>
+              </div>
+          </div>
+          ';
+
+        } // end of ELSE statement.
     ?>
-
-  <!-- BKG IMG & OVERLAY -->
-  <div class="bkgPageImg"><div class="bkgPageOverlay"></div></div>
-
-  <!-- PROJECT HOLDER -->
-  <div class="col s12 row white-text">
-
-      <!-- ONGOING -->
-      <div class="col s12 row">
-        <div class="col s12">
-
-            <!-- LARGE -->
-            <h1 class="center hide-on-med-and-down">
-              ONGOING:
-            </h1>
-
-            <h1 style="font-size: 35px;" class="center hide-on-large-only hide-on-small-only">
-              ONGOING:
-            </h1>
-
-            <!-- SMALL -->
-            <h1 style="font-size: 26px;" class="center hide-on-med-and-up">
-              ONGOING:
-            </h1>
-
-        </div>
-          <div class="col s3"></div><!-- DUMMY -->
-          <div class="col s6 divider">
-          </div>
-          <div class="col s3"></div><!-- DUMMY -->
-      </div>
-
-
-      <div class="col s2 hide-on-small-only"></div><!-- DUMMY -->
-      <div class="col s9 row center hide-on-small-only">
-
-        <!-- PROJECT ITEM #1 LARGE/MEDIUM -->
-        <a href="indoor-navigation/">
-
-            <div class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
-                <h3 style="top: 50px;" class="center">
-                    INDOOR NAVIGATION (AR/AI)
-                </h3>
-                <div class="parallax">
-                    <img src="../img/indoor_navigation/thumbnail2.png">
-                </div>
-            </div>
-        </a>
-
-        <!-- PROJECT ITEM #2 LARGE/MEDIUM -->
-        <a href="study-app/">
-            <div class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
-                <h3 class="center">
-                    STUDY APP
-                </h3>
-                <div class="parallax">
-                    <img src="../img/study_app/signup_1.png">
-                </div>
-            </div>
-        </a>
-
-      </div>
-      <div class="col s1 hide-on-small-only"></div><!-- DUMMY -->
-
-      <div class="col s12 row center hide-on-med-and-up">
-
-      <a href="indoor-navigation/">
-        <!-- PROJECT ITEM #1 SMALL -->
-        <div style="height: 250px" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
-            <h3 style="top: 80px;" class="center">
-                INDOOR NAVIGATION (AR/AI)
-            </h3>
-            <div class="parallax">
-                <img src="../img/indoor_navigation/thumbnail2.png">
-            </div>
-        </div>
-      </a>
-
-        <!-- PROJECT ITEM #2 SMALL -->
-        <a href="study-app/">
-            <div style="height: 250px" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
-                <h3 style="top: 80px;" class="center">
-                    STUDY APP
-                </h3>
-                <div class="parallax">
-                    <img src="../img/study_app/signup_1.png">
-                </div>
-            </div>
-        </a>
-
-
-      </div>
-
-      <!-- FINISHED -->
-
-      <div class="col s12 row">
-        <div class="col s12">
-
-            <!-- LARGE -->
-            <h1 class="center hide-on-med-and-down">
-              FINISHED:
-            </h1>
-
-            <h1 style="font-size: 35px;" class="center hide-on-large-only hide-on-small-only">
-              FINISHED:
-            </h1>
-
-            <!-- SMALL -->
-            <h1 style="font-size: 26px;" class="center hide-on-med-and-up">
-              FINISHED:
-            </h1>
-
-        </div>
-          <div class="col s3"></div><!-- DUMMY -->
-          <div class="col s6 divider">
-          </div>
-          <div class="col s3"></div><!-- DUMMY -->
-      </div>
-
-
-      <div class="col s2 hide-on-small-only"></div><!-- DUMMY -->
-      <div class="col s9 row center hide-on-small-only">
-
-        <!-- PROJECT ITEM #1 LARGE/MEDIUM -->
-        <a href="chipkit-tetris/">
-
-            <div class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
-                <h3 class="center">
-                    CHIPKIT TETRIS
-                </h3>
-                <div class="parallax">
-                    <img src="../img/chipkit_tetris/chip_2.png">
-                </div>
-            </div>
-        </a>
-
-        <!-- PROJECT ITEM #2 LARGE/MEDIUM -->
-        <a href="crm/">
-            <div class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
-                <h3 class="center">
-                    CRM
-                </h3>
-                <div class="parallax">
-                    <img src="../img/crm/crm_bkg.jpg">
-                </div>
-            </div>
-        </a>
-
-      </div>
-      <div class="col s1 hide-on-small-only"></div><!-- DUMMY -->
-
-      <div class="col s12 row center hide-on-med-and-up">
-
-      <a href="chipkit-tetris/">
-        <!-- PROJECT ITEM #1 SMALL -->
-        <div style="height: 250px" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
-            <h3 style="top: 80px;" class="center">
-                CHIPKIT TETRIS
-            </h3>
-            <div class="parallax">
-                <img src="../img/chipkit_tetris/chip_2.png">
-            </div>
-        </div>
-      </a>
-
-        <!-- PROJECT ITEM #2 SMALL -->
-        <a href="crm/">
-            <div style="height: 250px" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
-                <h3 style="top: 80px;" class="center">
-                    CRM
-                </h3>
-                <div class="parallax">
-                    <img src="../img/crm/crm_bkg.jpg">
-                </div>
-            </div>
-        </a>
-
-
-      </div>
-
-  </div>
-
 </body>
-
-
 </html>

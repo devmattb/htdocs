@@ -859,7 +859,7 @@
 
             <div class="col s12 left-align">
                 <a rel="nofollow" href="https://www.enigio.com/" target="_blank"><img style="width:130px;" src="img/enigio2.png"></a>
-                <a rel="nofollow" href="https://prfktbrand.com/" target="_blank"><img style="width:100px; position: relative; left: 30px; top: -18px;" src="img/tangar_logo.png"></a>
+                <a rel="nofollow" href="https://tangar.io/" target="_blank"><img style="width:100px; position: relative; left: 30px; top: -18px;" src="img/tangar_logo.png"></a>
             </div>
 
         </div>

@@ -13,9 +13,9 @@ CREATE TABLE `projectPosts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_bin NOT NULL,
   `subtitle` varchar(255) COLLATE utf8_bin NOT NULL,
-  `whatText` varchar(255) COLLATE utf8_bin NOT NULL
-  `whyText` varchar(255) COLLATE utf8_bin NOT NULL
-  `howText` varchar(255) COLLATE utf8_bin NOT NULL
+  `whatText` varchar(255) COLLATE utf8_bin NOT NULL,
+  `whyText` varchar(255) COLLATE utf8_bin NOT NULL,
+  `howText` varchar(255) COLLATE utf8_bin NOT NULL,
   `projectCoverImgSrc` varchar(255) COLLATE utf8_bin NOT NULL,
   `videoTitle1` varchar(255) COLLATE utf8_bin,
   `videoTitle2` varchar(255) COLLATE utf8_bin,
