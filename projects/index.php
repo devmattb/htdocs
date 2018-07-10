@@ -86,156 +86,45 @@
             <div class="bkgPageImg"><div class="bkgPageOverlay"></div></div>
 
             <!-- PROJECT HOLDER -->
-            <div class="row">
+            <div class="row projectRow">
             <div class="col s12 white-text">
 
                 <!-- ONGOING -->
-                <div class="col s12 row">
+                <div class="col s12 row center">
                   <div class="col s12">
-
                       <!-- LARGE -->
-                      <h1 class="center hide-on-med-and-down">
+                      <h1 class="hide-on-med-and-down">
                         ONGOING:
                       </h1>
 
-                      <h1 style="font-size: 35px;" class="center hide-on-large-only hide-on-small-only">
+                      <h1 style="font-size: 35px;" class="hide-on-large-only hide-on-small-only">
                         ONGOING:
                       </h1>
 
                       <!-- SMALL -->
-                      <h1 style="font-size: 26px;" class="center hide-on-med-and-up">
+                      <h1 style="font-size: 26px;" class="hide-on-med-and-up">
                         ONGOING:
                       </h1>
-
-                      </div>
+                  </div>
                       <div class="col s3"></div><!-- DUMMY -->
                       <div class="col s6 divider"></div>
                       <div class="col s3"></div><!-- DUMMY -->
-
                 </div>
                 ';
                 $numReps = 0;
                 foreach($dataOngoing as $row) {
                   if ($numReps == 0) {
                     echo '
-                    <div class="col s1 m1 hide-on-small-only"></div><!-- DUMMY -->
+                    <div class="row projectRow">
+                    <div class="col s1"></div><!-- DUMMY -->
                     <div class="col s10 m10 center hide-on-small-only">
 
                       <!-- PROJECT ITEM #1 LARGE/MEDIUM -->
-                      <a href="?id='.$row["id"].'">
-                          <div class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
-                              <h3 class="center">
-                                  '.$row["title"].'
-                              </h3>
-                              <div class="parallax">
-                                  <img src="'.$row["projectCoverImgSrc"].'">
-                              </div>
-                          </div>
-                      </a>';
-                    // numReps incremented on last echo.
-                  } else if ($numReps == 1) {
-                    echo '
-                      <!-- PROJECT ITEM #2 LARGE/MEDIUM -->
-                      <a href="?id='.$row["id"].'">
-                          <div class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
-                              <h3 class="center">
-                                  '.$row["title"].'
-                              </h3>
-                              <div class="parallax">
-                                  <img src="'.$row["projectCoverImgSrc"].'">
-                              </div>
-                          </div>
-                      </a>
-                    </div>'; // End LARGE/MED of project pair.
-                    // numReps reset on last echo.
-                  }
-                // Continue ... (Echo for small devices...)
-                if ($numReps == 0) {
-                  echo '
-                  <div class="col s1 m1 hide-on-small-only"></div><!-- DUMMY -->
-                  <div class="col s12 row center hide-on-med-and-up">
-                  <!-- PROJECT ITEM SMALL -->
-                  <a href="?id='.$row["id"].'">
-                      <div style="height: 250px" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
-                          <h3 style="top: 80px;" class="center">
-                              '.$row["title"].'
-                          </h3>
-                          <div class="parallax">
-                              <img src="'.$row["projectCoverImgSrc"].'">
-                          </div>
-                      </div>
-                  </a>';
-                  $numReps++; // Increment pairing
-                } else if ($numReps == 1) {
-                    echo '
-                      <!-- PROJECT ITEM #2 SMALL -->
-                      <a href="?id='.$row["id"].'">
-                          <div style="height: 250px" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
-                              <h3 style="top: 80px;" class="center">
-                                  '.$row["title"].'
-                              </h3>
-                              <div class="parallax">
-                                  <img src="'.$row["projectCoverImgSrc"].'">
-                              </div>
-                          </div>
-                      </a>
-                    </div>';  // End of SMALL project pair.
-                    $numReps = 0; // Reset pairing
-                }
-              } // end ONGOING foreach.
-
-                echo '
-                <!-- FINISHED -->
-                <div class="col s12 row">
-                  <div class="col s12">
-
-                      <!-- LARGE -->
-                      <h1 class="center hide-on-med-and-down">
-                        FINISHED:
-                      </h1>
-
-                      <h1 style="font-size: 35px;" class="center hide-on-large-only hide-on-small-only">
-                        FINISHED:
-                      </h1>
-
-                      <!-- SMALL -->
-                      <h1 style="font-size: 26px;" class="center hide-on-med-and-up">
-                        FINISHED:
-                      </h1>
-
-                  </div>
-                    <div class="col s3"></div><!-- DUMMY -->
-                    <div class="col s6 divider">
-                    </div>
-                    <div class="col s3"></div><!-- DUMMY -->
-                </div>
-                ';
-
-                $numReps2 = 0;
-                foreach($dataFinished as $row) {
-                  if ($numReps2 == 0) {
-                    echo '
-                    <div class="col s2 hide-on-small-only"></div><!-- DUMMY -->
-                    <div class="col s9 row center hide-on-small-only">
-
-                      <!-- PROJECT ITEM #1 LARGE/MEDIUM -->
-                      <a href="?id='.$row["id"].'">
-                          <div style="height: 250px" class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
-                              <h3 class="center">
-                                  CHIPKIT TETRIS
-                              </h3>
-                              <div class="parallax">
-                                  <img src="'.$row["projectCoverImgSrc"].'">
-                              </div>
-                          </div>
-                      </a>';
-                  } else if ($numReps2 == 1) {
-                      echo '
-                        <!-- PROJECT ITEM #2 LARGE/MEDIUM -->
+                      <div class="col l6 s12 hide-on-small-only">
                         <a href="?id='.$row["id"].'">
-                            <div style="height: 250px" class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
+                            <div style="height:30vmin!important;" class="col s12 projectBox z-depth-4 orangeOpacity parallax-container">
                                 <h3 class="center">
-                                    CHIPKIT TETRIS
+                                    '.$row["title"].'
                                 </h3>
                                 <div class="parallax">
                                     <img src="'.$row["projectCoverImgSrc"].'">
@@ -243,42 +132,189 @@
                             </div>
                         </a>
                       </div>';
+                    $numReps++; // Increment pairing
                   }
-                // Continue ... (Echo for small devices...)
-                if ($numReps2 == 0) {
-                echo '
-                <div class="col s1 hide-on-small-only"></div><!-- DUMMY -->
-                <div class="col s12 row center hide-on-med-and-up">
 
-                  <!-- PROJECT ITEM #1 SMALL -->
-                  <a href="?id='.$row["id"].'">
-                    <div style="height: 250px" class="col s6 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
-                        <h3 style="top: 80px;" class="center">
-                            CHIPKIT TETRIS
-                        </h3>
-                        <div class="parallax">
-                            <img src="'.$row["projectCoverImgSrc"].'">
-                        </div>
+                  if ($numReps == 1) {
+                    echo '
+                      <!-- PROJECT ITEM #2 LARGE/MEDIUM -->
+                      <div class="col l6 s12 hide-on-small-only">
+                        <a href="?id='.$row["id"].'">
+                          <div style="height:30vmin!important;" class="col s12 projectBox z-depth-4 orangeOpacity parallax-container">
+                              <h3 class="center">
+                                  '.$row["title"].'
+                              </h3>
+                              <div class="parallax">
+                                  <img src="'.$row["projectCoverImgSrc"].'">
+                              </div>
+                          </div>
+                        </a>
+                      </div>
                     </div>
-                  </a>';
-                  $numReps2++; // Increment pairing
-                } else if ($numReps2 == 1) {
+                    '; // End LARGE/MED of project pair.
+                    $numReps = 0; // Reset pairing
+                  }
+                  echo '
+                  <div class="col s1"></div><!-- DUMMY -->
+                  </div>'; // END OF ROW (LARGE/MED)
+                // Continue ... (Echo for small devices...)
+                if ($numReps == 0) {
+                  echo '
+                  <div class="row projectRow">
+                    <div class="col s1"></div><!-- DUMMY -->
+                    <div class="col s10 m10 row center hide-on-med-and-up">
+                      <!-- PROJECT ITEM SMALL -->
+                      <div class="col s12 hide-on-med-and-up">
+                        <a href="?id='.$row["id"].'">
+                            <div style="height: 40vmin!important;" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
+                                <h3 class="smallHeader center">
+                                    '.$row["title"].'
+                                </h3>
+                                <div class="parallax">
+                                    <img src="'.$row["projectCoverImgSrc"].'">
+                                </div>
+                            </div>
+                        </a>
+                      </div>';
+                  $numReps++; // Increment pairing
+                }
+
+                if ($numReps == 1) {
                     echo '
                       <!-- PROJECT ITEM #2 SMALL -->
+                      <div class="col l6 s12 hide-on-med-and-up">
+                        <a href="?id='.$row["id"].'">
+                            <div style="height: 40vmin!important;" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
+                                <h3 class="smallHeader center">
+                                    '.$row["title"].'
+                                </h3>
+                                <div class="parallax">
+                                    <img src="'.$row["projectCoverImgSrc"].'">
+                                </div>
+                            </div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col s1 hide-on-med-and-up"></div><!-- DUMMY -->
+                    </div>';  // End of ROW (Small)
+                    $numReps = 0; // Reset pairing
+                }
+              } // end ONGOING foreach.
+
+            echo '
+              <div class="col s12 white-text">
+
+              <!-- ONGOING -->
+              <div class="col s12 row center">
+                <div class="col s12">
+                    <!-- LARGE -->
+                    <h1 class="hide-on-med-and-down">
+                      FINISHED:
+                    </h1>
+
+                    <h1 style="font-size: 35px;" class="hide-on-large-only hide-on-small-only">
+                      FINISHED:
+                    </h1>
+
+                    <!-- SMALL -->
+                    <h1 style="font-size: 26px;" class="hide-on-med-and-up">
+                      FINISHED:
+                    </h1>
+                </div>
+                    <div class="col s3"></div><!-- DUMMY -->
+                    <div class="col s6 divider"></div>
+                    <div class="col s3"></div><!-- DUMMY -->
+              </div>
+              ';
+              $numReps = 0;
+              foreach($dataFinished as $row) {
+                if ($numReps == 0) {
+                  echo '
+                  <div class="row projectRow">
+                  <div class="col s1"></div><!-- DUMMY -->
+                  <div class="col s10 m10 center hide-on-small-only">
+
+                    <!-- PROJECT ITEM #1 LARGE/MEDIUM -->
+                    <div class="col l6 s12 hide-on-small-only">
                       <a href="?id='.$row["id"].'">
-                        <div style="height: 250px" class="col s6 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
-                            <h3 style="top: 80px;" class="center">
-                                CHIPKIT TETRIS
+                          <div style="height: 30vmin!important;" class="col s12 projectBox z-depth-4 orangeOpacity parallax-container">
+                              <h3 class="center">
+                                  '.$row["title"].'
+                              </h3>
+                              <div class="parallax">
+                                  <img src="'.$row["projectCoverImgSrc"].'">
+                              </div>
+                          </div>
+                      </a>
+                    </div>';
+                  $numReps++; // Increment pairing
+                }
+
+                if ($numReps == 1) {
+                  echo '
+                    <!-- PROJECT ITEM #2 LARGE/MEDIUM -->
+                    <div class="col l6 s12 hide-on-small-only">
+                      <a href="?id='.$row["id"].'">
+                        <div style="height: 30vmin!important;" class="col s12 projectBox z-depth-4 orangeOpacity parallax-container">
+                            <h3 class="center">
+                                '.$row["title"].'
                             </h3>
                             <div class="parallax">
                                 <img src="'.$row["projectCoverImgSrc"].'">
                             </div>
                         </div>
                       </a>
+                    </div>
+                  </div>
+                  '; // End LARGE/MED of project pair.
+                  $numReps = 0; // Reset pairing
+                }
+                echo '
+                <div class="col s1 hide-on-small-only"></div><!-- DUMMY -->
+                </div>'; // END OF ROW (LARGE/MED)
+              // Continue ... (Echo for small devices...)
+              if ($numReps == 0) {
+                echo '
+                <div class="row projectRow">
+                  <div class="col s1"></div><!-- DUMMY -->
+                  <div class="col s10 m10 row center hide-on-med-and-up">
+                    <!-- PROJECT ITEM SMALL -->
+                    <div class="col s12 hide-on-med-and-up">
+                      <a href="?id='.$row["id"].'">
+                          <div style="height: 40vmin!important;" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
+                              <h3 class="smallHeader center">
+                                  '.$row["title"].'
+                              </h3>
+                              <div class="parallax">
+                                  <img src="'.$row["projectCoverImgSrc"].'">
+                              </div>
+                          </div>
+                      </a>
                     </div>';
-                    $numReps2 = 0; // Reset pairing
-                  }
-              } // End Foreach FINISHED
+                $numReps++; // Increment pairing
+              }
+
+              if ($numReps == 1) {
+                  echo '
+                    <!-- PROJECT ITEM #2 SMALL -->
+                    <div class="col l6 s12 hide-on-med-and-up">
+                      <a href="?id='.$row["id"].'">
+                          <div style="height: 40vmin!important;" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
+                              <h3 class="smallHeader center">
+                                  '.$row["title"].'
+                              </h3>
+                              <div class="parallax">
+                                  <img src="'.$row["projectCoverImgSrc"].'">
+                              </div>
+                          </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col s1 hide-on-med-and-up"></div><!-- DUMMY -->
+                  </div>';  // End of ROW (Small)
+                  $numReps = 0; // Reset pairing
+              }
+            } // end ONGOING foreach.
           echo '
             </div>
             </div>

@@ -177,6 +177,10 @@
         transition: 0.1s;
       }
 
+      .projectRow {
+      
+      }
+
       .projectBox:hover {
         transform: scale(1.02);
         cursor: pointer;
