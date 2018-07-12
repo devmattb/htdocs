@@ -41,11 +41,9 @@
   <?php include("../../php/errors.php"); ?>
 </head>
 <body>
-<!-- PRELOADER -->
-<?php include("../../includes/preloader.html") ?>
 
 <!-- LOGIN FORM -->
-<div style="margin-top: 30px;" id="page" class="row col s12">
+<div style="margin-top: 30px;" id="page" class="row col s12 container">
     <header id="banner" class="center">
       <h4>Devmattb <?php if ($permissionTitle == "admin") { echo "Admin"; }?> Dashboard</h4> <br/>
     </header>
@@ -56,8 +54,8 @@
         <p>Skapa nya inlägg på nyhetssidan, och radera gamla. Klicka in på någon av knapparna nedan för att gå vidare. </p>
       </div>
       <div class="card-action">
-        <a href="../nytt-inlagg/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> Skapa Inlägg </button></a>
-        <?php if ($permissionTitle == "admin") { echo '<a href="../radera-inlagg/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> Radera Inlägg </button></a>';}?>
+        <a href="../new-project-post/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> Skapa Inlägg </button></a>
+        <?php if ($permissionTitle == "admin") { echo '<a href="../delete-project-post/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> Radera Inlägg </button></a>';}?>
       </div>
     </div>
     <?php
@@ -72,8 +70,8 @@
             </p>
           </div>
           <div class="card-action">
-            <a href="../nytt-konto/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> Skapa Nytt Konto </button></a>
-            <a href="../radera-konto/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> Radera Konton </button></a>
+            <a href="../new-account/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> Skapa Nytt Konto </button></a>
+            <a href="../delete-account/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> Radera Konton </button></a>
           </div>
         </div>
 
@@ -86,20 +84,11 @@
             </p>
           </div>
           <div class="card-action">
-            <a href="../nytt-jobb/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> Lägg Till Roll </button></a>
-            <a href="../radera-jobb/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> Radera Roll  </button></a>
+            <a href="../new-job-search/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> Lägg Till Roll </button></a>
+            <a href="../delete-job-search/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> Radera Roll  </button></a>
           </div>
         </div>
 
-        <div class="card blue-grey darken-1 z-depth-2 scale-transition scale-out">
-          <div class="card-content white-text">
-            <span class="card-title">Hantera Siffror:</span>
-            <p> Ändra på de siffror som skyltas med på framsidan. Klicka på knappen nedan för att gå vidare. </p>
-          </div>
-          <div class="card-action">
-            <a href="../hantera-siffror/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> Ändra siffror </button></a>
-          </div>
-        </div>
     '; } ?>
         <div class="col s12 center">
           <a href="../../">
@@ -117,8 +106,6 @@
           </form>
         </div>
 </div>
-
-<?php include("../../includes/adminFooter.php"); ?>
 
 </body>
 </html>

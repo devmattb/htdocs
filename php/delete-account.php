@@ -10,7 +10,7 @@
   if(empty($_GET["id"])) {
     // Missing ID param. Exit.
     $_SESSION["error"] = 8;
-    header("Location: ../admin/radera-konto");
+    header("Location: ../admin/delete-account");
     return;
   }
 
@@ -24,5 +24,5 @@
 
   // Success!
   $_SESSION["error"] = 9;
-  header("Location: ../admin/radera-konto");
+  header("Location: ../admin/delete-account");
 ?>

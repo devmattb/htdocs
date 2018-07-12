@@ -101,8 +101,8 @@
       <script>
           $(document).ready(function(){
             errorToastHTML +=
-              `I'm sorry, some mandatory fields were left empty!</span>`;
-            M.toast({html: errorToastHTML, classes: 'red'}, 15000);
+              `I'm sorry, I couldn't perform the correct action, you we're missing some details!</span>`;
+            M.toast({html: errorToastHTML, classes: 'red'}, 25000);
           });
       </script>
   <?php
@@ -164,7 +164,27 @@
                 });
             </script>
   <?php
-          }
+  } else if ( $_SESSION["error"] == 18 ) {
+            ?>
+            <script>
+              $(document).ready(function(){
+                errorToastHTML +=
+                  `I'm sorry, I wasn't able to add you to the newsletter, you didn't fill out your email properly!</span>`;
+                M.toast({html: errorToastHTML, classes: 'red'}, 25000);
+              });
+            </script>
+  <?php
+  } else if ( $_SESSION["error"] == 19 ) {
+            ?>
+    <script>
+      $(document).ready(function(){
+        errorToastHTML +=
+          `I'm sorry, I wasn't able to add you to the newsletter, because you're already on it!</span>`;
+        M.toast({html: errorToastHTML, classes: 'red'}, 25000);
+      });
+    </script>
+  <?php
       }
-      unset($_SESSION["error"]); // Error has been displayed.
+    }
+    unset($_SESSION["error"]); // Error has been displayed.
   ?>

@@ -13,7 +13,7 @@
   if ( empty($_POST["jobTitle"]) || empty($_POST["jobText"]) || empty($_POST["jobQualifications"])) {
       $_SESSION["error"] = 10;
       echo "Some mandatory fields were left empty. <br/>";
-      header("Location: ../admin/nytt-jobb");
+      header("Location: ../admin/new-job-search");
       return;
   }
 
@@ -29,6 +29,6 @@
 
   // Redirect when finished. Note that this URL is right now static.
   $_SESSION["error"] = 12;
-  header("Location: ../admin/nytt-jobb");
+  header("Location: ../admin/new-job-search");
 
 ?>

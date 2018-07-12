@@ -57,7 +57,7 @@
             <li class="hoverable tooltipped" data-position="bottom" data-tooltip="Klicka för att se detaljerad info!">
               <div class="collapsible-header">
                 <?php echo $title ?>
-                <form class="col s12" action="<?php echo '../../php/delete-post.php?id='.$id.'&imgSrc='.$imgSrc?>" method="post" enctype="multipart/form-data" >
+                <form class="col s12" action="<?php echo '../../php/delete-project-post.php?id='.$id.'&imgSrc='.$imgSrc?>" method="post" enctype="multipart/form-data" >
                   <button type="submit" style="margin-top: 0px;" class="right btn waves-effect waves-light red hoverable">RADERA</button>
                 </form>
               </div>

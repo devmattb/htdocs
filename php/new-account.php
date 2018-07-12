@@ -13,7 +13,7 @@
   if ( empty($_POST["username"]) || empty($_POST["pass1"]) || empty($_POST["pass2"]) || empty($_POST["fullName"]) || empty($_POST["email"])) {
       $_SESSION["error"] = 10;
       $submitOk = false;
-      header("Location: ../admin/nytt-konto");
+      header("Location: ../admin/new-account");
       return;
   }
 
@@ -21,7 +21,7 @@
   if ( $_POST["pass1"] != $_POST["pass2"]) {
       $_SESSION["error"] = 11;
       $submitOk = false;
-      header("Location: ../admin/nytt-konto");
+      header("Location: ../admin/new-account");
       return;
   }
 
@@ -39,7 +39,7 @@
   if ($submitOk) {
     // Redirect when finished. Note that this URL is right now static.
     $_SESSION["error"] = 7;
-    header("Location: ../admin/nytt-konto");
+    header("Location: ../admin/new-account");
   }
 
 ?>

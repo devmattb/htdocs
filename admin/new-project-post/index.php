@@ -40,7 +40,7 @@
     <div class="row">
       <div class="col s12">
         <br/><br/><br/><br/>
-        <form action="../../php/new-post.php" method="post" enctype="multipart/form-data" class="col s10 offset-s1">
+        <form action="../../php/new-project-post.php" method="post" enctype="multipart/form-data" class="col s10 offset-s1">
           <h4 style="margin-left: 10px;"> Gör ett nytt inlägg! </h4>
           <br/>
 

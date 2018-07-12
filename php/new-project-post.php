@@ -30,7 +30,7 @@
   if ( empty($_POST["postText"]) || empty($_POST["postTitle"])) {
       $_SESSION["error"] = 2;
       echo "bad txt/title";
-      //header("Location: ../admin/nytt-inlagg");
+      header("Location: ../admin/new-project-post");
       return;
   }
 
@@ -51,7 +51,7 @@
   if ($uploadOk == 0) {
       echo "Sorry, your file was not uploaded.";
       $_SESSION["error"] = 2;
-      header("Location: ../admin/nytt-inlagg");
+      header("Location: ../admin/new-project-post");
       return;
   // if everything is ok, try to upload file
   } else {
@@ -61,7 +61,7 @@
       } else {
         echo "Sorry, there was an error uploading your file.";
         $_SESSION["error"] = 2;
-        header("Location: ../admin/nytt-inlagg");
+        header("Location: ../admin/new-project-post");
         return;
       }
   }
@@ -89,5 +89,5 @@
   $query->execute(array(':imgSrc'=>$imgSrc,':postTitle'=>$postTitle, ':postText'=>$postText, ':createdBy'=>$createdBy));
 
   // Redirect
-  header("Location: ../admin/nytt-inlagg");
+  header("Location: ../admin/new-project-post");
 ?>

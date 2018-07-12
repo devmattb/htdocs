@@ -10,7 +10,7 @@
   if(empty($_GET["id"])) {
     // Missing ID param. Exit.
     $_SESSION["error"] = 13;
-    header("Location: ../admin/radera-jobb");
+    header("Location: ../admin/delete-job-search");
     return;
   }
 
@@ -24,5 +24,5 @@
 
   // Success!
   $_SESSION["error"] = 14;
-  header("Location: ../admin/radera-jobb");
+  header("Location: ../admin/delete-job-search");
 ?>

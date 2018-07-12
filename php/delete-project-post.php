@@ -10,7 +10,7 @@
   if(empty($_GET["id"]) || empty($_GET["imgSrc"])) {
     // Missing ID or imgSrc param
     $_SESSION["error"] = 4;
-    header("Location: ../admin/radera-inlagg");
+    header("Location: ../admin/delete-project-post");
     return;
   }
 
@@ -27,5 +27,5 @@
 
   // Success!
   $_SESSION["error"] = 5;
-  header("Location: ../admin/radera-inlagg");
+  header("Location: ../admin/delete-project-post");
 ?>
