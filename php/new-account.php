@@ -30,7 +30,7 @@
   $fullName = $_POST["fullName"];
   $email = $_POST["email"];
   $permissionTitle = $_POST["permissionTitle"];
-  $sql = "INSERT INTO account (username, password, fullName, email, permissionTitle) VALUES (:username, :password, :fullName, :email, :permissionTitle)";
+  $sql = "INSERT INTO adminAccounts (username, password, fullName, email, permissionTitle) VALUES (:username, :password, :fullName, :email, :permissionTitle)";
 
   // Execute command:
   $query = $db->prepare($sql);

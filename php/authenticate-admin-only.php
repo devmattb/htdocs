@@ -1,7 +1,7 @@
 <?php
   // This file is included on all pages that are strictly admin-access only.
   $db = getDB();
-  $query = 'SELECT * FROM account WHERE id="'.$_SESSION["authenticated"].'"';
+  $query = 'SELECT * FROM adminAccounts WHERE id="'.$_SESSION["authenticated"].'"';
   $data = getContents($db, $query);
   foreach ($data as $row) {
     $permissionTitle = $row["permissionTitle"];

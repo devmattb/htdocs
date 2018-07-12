@@ -16,7 +16,7 @@ VALUES
     "TETRIS SHOWCASE",
     "../img/chipkit_tetris/tetris-background.jpg",
     "https://www.youtube.com/watch?v=a56wzoTroG4&t=7s",
-    "true",
+    false,
     "Matt"
   );
 

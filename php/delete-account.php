@@ -16,7 +16,7 @@
 
   $id = $_GET["id"];
 
-  $sql = "DELETE FROM account WHERE id=$id";
+  $sql = "DELETE FROM adminAccounts WHERE id=$id";
 
   // Execute command:
   $query = $db->prepare($sql);

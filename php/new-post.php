@@ -71,8 +71,8 @@
   $imgSrc = $pathToFileFromBlog.basename( $_FILES["fileToUpload"]["name"]);
 
   // Get the author name, through the authenticated session variable, that stores
-  // the account ID of the current user:
-  $q = 'SELECT * FROM account WHERE id="'.$_SESSION["authenticated"].'"';
+  // the adminAccounts ID of the current user:
+  $q = 'SELECT * FROM adminAccounts WHERE id="'.$_SESSION["authenticated"].'"';
   $userData = getContents($db, $q);
   $fullName = "Anonymous";
   foreach($userData as $row) {

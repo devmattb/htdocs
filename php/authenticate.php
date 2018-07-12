@@ -10,7 +10,7 @@
       header('Location: ../../');
   }
 
-  $query = 'SELECT * FROM account WHERE id="'.$_SESSION["authenticated"].'"';
+  $query = 'SELECT * FROM adminAccounts WHERE id="'.$_SESSION["authenticated"].'"';
   $data = getContents($db, $query);
 
   if (empty($data)) {
