@@ -9,205 +9,28 @@
   <meta name="twitter:title" content="devmattb - Home">
 
   <!-- Webpage Thumbnail pic SEO -->
-  <meta itemprop="image" content="http://devmattb.com/img/thumbnail_website.PNG">
-  <meta property="og:image" content="http://devmattb.com/img/thumbnail_website.PNG">
-  <meta name="twitter:image" content="http://devmattb.com/img/thumbnail_website.PNG">
+  <meta itemprop="image" content="img/thumbnail_website.PNG">
+  <meta property="og:image" content="img/thumbnail_website.PNG">
+  <meta name="twitter:image" content="img/thumbnail_website.PNG">
 
   <!-- STANDARD HEADER -->
   <?php include("includes/header.html") ?>
+  <?php include("php/errors.php") ?>
 
-  <!-- DEVMATTB CSS -->
-  <link type="text/css" rel="stylesheet" href="css/stylesheet.css"/>
+  <!-- STANDARD INIT -->
+  <script src="js/init.js" type="text/javascript"></script>
+
+  <!-- HOME SCRIPT -->
+  <script src="js/home-scripts.js" type="text/javascript"></script>
+
+  <!-- SLIDER ANIMATION CSS -->
   <link type="text/css" rel="stylesheet" href="css/slider.css" />
-
-  <script>
-
-      $(document).ready(function(){
-
-
-        $(window).on('scroll', function() {
-            var y_scroll_pos = window.pageYOffset;
-            var scroll_pos_test = 0;             // set to whatever you want it to be
-
-            if(y_scroll_pos > scroll_pos_test) {
-                $("#scrollReminderDiv").removeClass("animate-flicker");
-                $("#scrollReminderDiv").addClass("hidden");
-            }
-        });
-
-        $(".howIWorkCover").children().hide();
-
-        // Init
-        $(".modal").modal();
-        $(".button-collapse").sideNav({'closeOnClick' : true});
-        $(".brand-logo").attr("src", "img/logo_white_transparent.png");
-        $("#homeNavItem").css("border-bottom", "2px solid #F93822");
-        $('.parallax').parallax();
-
-        $(".r-hex-inner-2").hover(
-          function() {
-            const type = $(this).attr("type");
-            if ( type == "orange" ) {
-                $(this).find(".r-hex-text h3").removeClass("white-text");
-                $(this).find(".r-hex-text h3").addClass("webTextOrange");
-            } else if ( type == "white" ) {
-                $(this).find(".r-hex-text h3").removeClass("black-text");
-                $(this).find(".r-hex-text h3").addClass("white-text");
-            }
-
-          }, function() {
-            const type = $(this).attr("type");
-            if ( type == "orange" ) {
-                $(this).find(".r-hex-text h3").removeClass("webTextOrange");
-                $(this).find(".r-hex-text h3").addClass("white-text");
-            } else if ( type == "white" ) {
-                $(this).find(".r-hex-text h3").removeClass("white-text");
-                $(this).find(".r-hex-text h3").addClass("black-text");
-            }
-
-          }
-        );
-
-
-        // Controls How-I-Work-Cover
-        function pgControl(pgNum){
-
-            // Color fix:
-            $(".breadcrumb").removeClass("webTextOrange"); //reset
-            if ( pgNum == "1" ) {
-                $(".evalTitle").addClass("webTextOrange");
-            } else if ( pgNum == "2" ) {
-                $(".orgTitle").addClass("webTextOrange");
-            } else if ( pgNum == "3" ) {
-                $(".execTitle").addClass("webTextOrange");
-            } else if ( pgNum == "4" ) {
-                $(".anaTitle").addClass("webTextOrange");
-            }
-            $(".allPgs").fadeOut(200);
-            window.setTimeout(function(){$(".pg"+pgNum).fadeIn(200);}, 200);
-        }
-
-        $(".r-hex-inner-2").click(function(){
-
-            $(".howIWorkCover").children().show();
-            $(".howIWorkCover").css("width", "100%");
-            const pgNum = $(this).attr("name");
-            pgControl(pgNum);
-
-        });
-
-        $(".closeHowIWorkCover").click(function(){
-
-            $(".howIWorkCover").children().hide();
-            $(".howIWorkCover").css("width", "0px");
-
-        });
-
-        $(".closeHowIWorkCover2").click(function(){
-
-            $(".howIWorkCover").children().hide();
-            $(".howIWorkCover").css("width", "0px");
-
-        });
-
-
-        $(".breadcrumb").click(function(){
-
-            const pgNum = $(this).attr("name");
-            pgControl(pgNum);
-
-        });
-
-        // Qualifications functions:
-	   $(".expQuaDiv").hover(
-          function() {
-            if(expQuaDivHoverable) {
-                $(this).find(".fa").addClass("black-text");
-                $(this).find(".fa").removeClass("webTextOrange");
-            }
-          }, function() {
-            if(expQuaDivHoverable) {
-                $(this).find(".fa").removeClass("black-text");
-                $(this).find(".fa").addClass("webTextOrange");
-            }
-          }
-        );
-
-        var expQuaDivHoverable = true;
-        $(".expQuaDiv").click(function(){
-
-           const clicked  = $(this).attr("type");
-           expQuaDivHoverable = false;
-           $(".quaDivs").fadeOut("100");
-           $(".quaDivs").find('div').addClass("hidden");
-
-           window.setTimeout(function(){
-            //Fix Icon (non clickable/hoverable)
-            $(clicked).find(".expQuaDiv").css("transform","scale(1.1)");
-            $(clicked).find(".expQuaDiv").css("cursor","default");
-            $(clicked).find(".expQuaDiv .fa").removeClass("webTextOrange");
-            $(clicked).find(".expQuaDiv .fa").addClass("black-text");
-
-            $(clicked).removeClass("l4");
-            $(clicked).addClass("l12");
-
-            if( $(window).width() <= 320) {
-                $("#myExpertise").animate({"height" : "1400px"}, 200);
-            } else if ( $(window).width() <= 350 ) {
-                $("#myExpertise").animate({"height" : "1200px"}, 200);
-            } else if ( $(window).width() <= 440 ) {
-                $("#myExpertise").animate({"height" : "1150px"}, 200);
-            } else if ( $(window).width() > 440 ) {
-                $("#myExpertise").animate({"height" : "1050px"}, 200);
-            }
-            $(clicked).find("div").removeClass("hidden");
-
-           },300);
-
-           window.setTimeout(function(){
-            $(clicked).fadeIn("100");
-           },400);
-
-        });
-
-        $(".goBackQuaBtn").click(function(){
-            expQuaDivHoverable = true;
-           $(".quaDivs").fadeOut("100");
-           window.setTimeout(function(){
-            // Reset Icons
-            $(".expQuaDiv").css("cursor","pointer");
-            $(".expQuaDiv").css("transform","scale(1)");
-            $(".expQuaDiv .fa").addClass("webTextOrange");
-            $(".expQuaDiv .fa").removeClass("black-text");
-
-            $(".quaDivs").removeClass("l12");
-            $(".quaDivs").addClass("l4");
-            $("#myExpertise").animate({"height" : "750px"}, 200);
-            $(".quaDivs").find("div").removeClass("hidden");
-            $(".txtDiv").addClass("hidden");
-
-           },300);
-
-           window.setTimeout(function(){
-            $(".quaDivs").fadeIn("100");
-           },500);
-
-        });
-
-      });
-
-  </script>
 
 </head>
 
 <body>
 
-    <?php
-
-        include("includes/modals.html");
-        include("includes/nav.html");
-
-    ?>
+  <?php include("includes/nav-home.php"); ?>
   <div id="homeBkg"></div>
   <div class="col s12 row">
 
@@ -277,23 +100,23 @@
         </div>
     </a>
 
-    <a href="/reflections">
+    <a href="/videos">
         <!-- LARGE -->
         <div class="col s6 coreSubject leadershipSubject hide-on-med-and-down">
             <h3 alt="life philosophy" class="center">
-                REFLECTIONS
+                VIDEOS
             </h3>
         </div>
         <!-- MEDIUM -->
         <div class="col s6 coreSubject leadershipSubject hide-on-large-only hide-on-small-only">
             <h3 alt="life philosophy" style="font-size:9vmin" class="center">
-                REFLECTIONS
+                VIDEOS
             </h3>
         </div>
         <!-- SMALL -->
         <div class="col s12 coreSubject leadershipSubject hide-on-med-and-up">
             <h3 alt="life philosophy" style="top: 19vmin" class="center">
-                REFLECTIONS
+                VIDEOS
             </h3>
         </div>
     </a>
@@ -427,7 +250,6 @@
                 </div>
 
                 <div class="txtDiv col s10 offset-s1 hidden">
-
                     <p class="flow-text">
 
                         I'm currently working on my Bachelor's Degree in Computer Science at The Royal Institute of Technology, in Stockholm, Sweden.
@@ -436,7 +258,6 @@
                         I do this through books, videos and podcasts.
                         <div class="col s12"> <button class="goBackQuaBtn btn waves-effect waves-light webOrange"><i style="font-size: 16px; position: relative; left: -10px; " class="fa fa-arrow-left"></i>GO BACK</button></div>
                     </p>
-
                 </div>
 
             </div>
@@ -555,7 +376,7 @@
                 <h5 class="center white-text"> NEED MY ASSISTANCE? </h5>
                 <br>
                 <a href="#contactModal">
-                    <button class="callToActionBtn btn waves-effect waves-light">
+                    <button class="callToActionBtn btn btn-inverted waves-effect waves-light">
                         GET IN TOUCH
                     </button>
                 </a>

@@ -17,14 +17,13 @@
   <!-- DEVMATTB CSS -->
   <link type="text/css" rel="stylesheet" href="../css/stylesheet.css">
 
+  <!-- STANDARD INIT -->
+  <script src="../js/init.js" type="text/javascript"></script>
+
   <script>
 
       $(document).ready(function(){
-
         // Init
-        $(".button-collapse").sideNav({'closeOnClick' : true});
-        $(".parallax").parallax();
-        $(".modal").modal();
         $("#flowNavItem").css("border-bottom", "2px solid #F93822");
         $(".projectBox").hover(
           function() {
@@ -41,12 +40,8 @@
 
 <body>
 
-    <?php
+  <?php include_once("../includes/nav.php"); ?>
 
-        include("../includes/modals.html");
-        include("../includes/nav.html");
-
-    ?>
   <!-- BKG IMG & OVERLAY -->
   <div class="bkgPageImg"><div class="bkgPageOverlay"></div></div>
 
@@ -90,13 +85,13 @@
 
                 <!-- LARGE -->
                 <div class="hide-on-small-only">
-                    <i class="projectCategoryIcon fa fa-twitter-square"></i>
+                    <i class="projectCategoryIcon fab fa-twitter-square"></i>
                     <h3>HASHTAG MENTIONS</h3>
                 </div>
 
                 <!-- SMALL -->
                 <div class="hide-on-med-and-up">
-                    <i class="projectCategoryIconSmall fa fa-twitter-square"></i>
+                    <i class="projectCategoryIconSmall fab fa-twitter-square"></i>
                     <h3 class="smallHeader">HASHTAG MENTIONS</h3>
 
                 </div>
@@ -123,12 +118,12 @@
 
                 <!-- LARGE -->
                 <div class="hide-on-small-only">
-                    <i class="projectCategoryIcon fa fa-instagram"></i>
+                    <i class="projectCategoryIcon fab fa-instagram"></i>
                     <h3>RECENT POSTS</h3>
                 </div>
 
                 <div class="hide-on-med-and-up">
-                    <i class="projectCategoryIconSmall fa fa-instagram"></i>
+                    <i class="projectCategoryIconSmall fab fa-instagram"></i>
                     <h3 class="smallHeader">RECENT POSTS</h3>
 
                 </div>
@@ -151,13 +146,13 @@
 
                 <!-- LARGE -->
                 <div class="hide-on-small-only">
-                    <i class="projectCategoryIcon fa fa-facebook-square"></i>
+                    <i class="projectCategoryIcon fab fa-facebook-square"></i>
                     <h3>PAGE ACTIVITY</h3>
                 </div>
 
                 <!-- SMALL -->
                 <div class="hide-on-med-and-up">
-                    <i class="projectCategoryIconSmall fa fa-facebook-square"></i>
+                    <i class="projectCategoryIconSmall fab fa-facebook-square"></i>
                     <h3 class="smallHeader">PAGE ACTIVITY</h3>
 
                 </div>

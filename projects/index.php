@@ -2,7 +2,6 @@
   // PHP LIB
   require_once("../php/functions.php");
   $db = getDB(); // getDB connection on this page.
-
 ?>
 
 <!DOCTYPE html>
@@ -42,16 +41,11 @@
   <!-- DEVMATTB CSS -->
   <link type="text/css" rel="stylesheet" href="../css/stylesheet.css">
 
+  <!-- STANDARD INIT -->
+  <script src="../js/init.js" type="text/javascript"></script>
+
   <script>
-
       $(document).ready(function(){
-        // Init
-        $(".button-collapse").sideNav({'closeOnClick' : true});
-        $(".parallax").parallax();
-        $(".modal").modal();
-        $("#projectNavItem").css("border-bottom", "2px solid #F93822");
-        $(".brand-logo").attr("src", "logo_white_transparent.png");
-
         $("#projectNavItem").css("border-bottom", "2px solid #F93822");
         $(".projectBox").hover(
           function() {
@@ -60,7 +54,6 @@
             $(this).children("h3").removeClass("hidden");
           });
       });
-
   </script>
 
 </head>
@@ -69,8 +62,7 @@
 
     <?php
 
-        include("../includes/modals.html");
-        include("../includes/nav.html");
+        include_once("../includes/nav.php");
 
         // Display Projects Page, Or Project Details Page?
         if (!isset($_GET["id"]) || $_GET["id"] == 0 ) {
@@ -118,7 +110,7 @@
                     echo '
                     <div class="row projectRow">
                     <div class="col s1"></div><!-- DUMMY -->
-                    <div class="col s10 m10 center hide-on-small-only">
+                    <div class="col s10 m10 center">
 
                       <!-- PROJECT ITEM #1 LARGE/MEDIUM -->
                       <div class="col l6 s12 hide-on-small-only">
@@ -215,7 +207,7 @@
                   echo '
                   <div class="row projectRow">
                   <div class="col s1"></div><!-- DUMMY -->
-                  <div class="col s10 m10 center hide-on-small-only">
+                  <div class="col s10 m10 center">
 
                     <!-- PROJECT ITEM #1 LARGE/MEDIUM -->
                     <div class="col l6 s12 hide-on-small-only">
@@ -361,13 +353,13 @@
 
                         <!-- LARGE -->
                         <div class="hide-on-small-only">
-                            <i class="projectCategoryIcon fa fa-lightbulb-o"></i>
+                            <i class="projectCategoryIcon far fa-lightbulb"></i>
                             <h3>WHAT</h3>
                         </div>
 
                         <!-- SMALL -->
                         <div class="hide-on-med-and-up">
-                            <i class="projectCategoryIconSmall fa fa-lightbulb-o"></i>
+                            <i class="projectCategoryIconSmall far fa-lightbulb"></i>
                             <h3 class="smallHeader">WHAT</h3>
 
                         </div>
@@ -387,12 +379,12 @@
 
                         <!-- LARGE -->
                         <div class="hide-on-small-only">
-                            <i class="projectCategoryIcon fa fa-question-circle-o"></i>
+                            <i class="projectCategoryIcon far fa-question-circle"></i>
                             <h3>WHY</h3>
                         </div>
 
                         <div class="hide-on-med-and-up">
-                            <i class="projectCategoryIconSmall fa fa-question-circle-o"></i>
+                            <i class="projectCategoryIconSmall far fa-question-circle"></i>
                             <h3 class="smallHeader">WHY</h3>
 
                         </div>
@@ -413,13 +405,13 @@
 
                         <!-- LARGE -->
                         <div class="hide-on-small-only">
-                            <i class="projectCategoryIcon fa fa-code"></i>
+                            <i class="projectCategoryIcon fas fa-code"></i>
                             <h3>HOW</h3>
                         </div>
 
                         <!-- SMALL -->
                         <div class="hide-on-med-and-up">
-                            <i class="projectCategoryIconSmall fa fa-code"></i>
+                            <i class="projectCategoryIconSmall fas fa-code"></i>
                             <h3 class="smallHeader">HOW</h3>
                         </div>
 
@@ -435,7 +427,10 @@
 
 
                     <div style="position: relative; top: 20px;" class="col s12 row">
+                    ';
 
+                    if ($numVids != 0) {
+                      echo '
                         <div class="col s12">
 
                           <!-- LARGE -->
@@ -451,12 +446,14 @@
                           </h3>
 
                         </div>
+                        ';
+                      }
 
-                        <div style="position:relative; top: 20px; left: 30px;" class="col s11 left">';
+                        echo '
+                        <div style="position:relative; top: 20px; left: 30px;" class="col s10 m11 l11 left">
+                            <div class="col l12 s12 row center hide-on-small-only">';
                               // Create Project Footer:
-                              if ($numVids == 0) {
-                                echo '<p>No videos have been published yet.</p>';
-                              } else {
+                              if ($numVids != 0) {
                                 for($i = 0; $i < $numVids; $i++ ) {
                                   $vidLink = "";
                                   $vidTitle = "";
@@ -475,26 +472,39 @@
                                     $vidImgSrc = $videoCoverImg3;
                                   }
                                   echo '
-                                  <div class="col l12 m8 s12 row center hide-on-small-only">
-
                                       <!-- LARGE/MEDIUM -->
                                       <a target="_blank" href="'.$vidLink.'">
 
-                                          <div style="height: 230px" class="col m12 l4 projectBox z-depth-4 orangeOpacity parallax-container">
-                                              <h3 style="top: 30%;" class="center">
+                                          <div style="height: 230px width: 120%;" class="col m12 l3 projectBox z-depth-4 orangeOpacity parallax-container">
+                                              <h3 style="top: 10vmin; font-size: 3.5vmin;" class="center">
                                                   '.$vidTitle.'
                                               </h3>
                                               <div class="parallax">
                                                   <img src="'.$vidImgSrc.'">
                                               </div>
                                           </div>
-                                      </a>
-
+                                      </a>';
+                                  } // End of for-loop
+                                  echo '
                                     </div>
                                     <div class="col s1 hide-on-small-only"></div><!-- DUMMY -->
-
                                     <div class="col s12 center hide-on-med-and-up">
-
+                                  ';
+                                  for($i = 0; $i < $numVids; $i++ ) {
+                                    if ($i == 0) {
+                                      $vidLink = $videoLink1;
+                                      $vidTitle = $videoTitle1;
+                                      $vidImgSrc = $videoCoverImg1;
+                                    } else if ($i == 1) {
+                                      $vidLink = $videoLink2;
+                                      $vidTitle = $videoTitle2;
+                                      $vidImgSrc = $videoCoverImg2;
+                                    } else if ($i == 2) {
+                                      $vidLink = $videoLink3;
+                                      $vidTitle = $videoTitle3;
+                                      $vidImgSrc = $videoCoverImg3;
+                                    }
+                                    echo '
                                         <a target="_blank" href="'.$vidLink.'">
                                           <div style="height: 100px" class="col s12 projectBoxSmall z-depth-4 parallax-container">
 
@@ -506,14 +516,13 @@
                                               </div>
                                           </div>
                                         </a>
-
                                   ';
-                                } // End of for-loop
+                                  } // End of for-loop
+                                  echo '</div>';
                               }
 
          // Echo closing tags...
          echo '
-                            </div>
                         </div>
                     </div>
               </div>

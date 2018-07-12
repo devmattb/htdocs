@@ -4,10 +4,10 @@
 <head>
 
   <!-- Title SEO -->
-  <title>devmattb - Reflections</title>
-  <meta itemprop="name" content="devmattb - Reflections">
-  <meta property="og:title" content="devmattb - Reflections">
-  <meta name="twitter:title" content="devmattb - Reflections">
+  <title>devmattb - Videos</title>
+  <meta itemprop="name" content="devmattb - Videos">
+  <meta property="og:title" content="devmattb - Videos">
+  <meta name="twitter:title" content="devmattb - Videos">
 
   <!-- STANDARD HEADER -->
   <?php include("../includes/header.html") ?>
@@ -15,16 +15,15 @@
   <!-- DEVMATTB CSS -->
   <link type="text/css" rel="stylesheet" href="../css/stylesheet.css">
 
+  <!-- STANDARD INIT -->
+  <script src="../js/init.js" type="text/javascript"></script>
+
   <script>
 
       $(document).ready(function(){
 
         // Init
-        $(".button-collapse").sideNav();
-        $(".parallax").parallax();
-        $(".modal").modal();
-        $(".button-collapse").sideNav({'closeOnClick' : true});
-        $("#reflectionNavItem").css("border-bottom", "2px solid #F93822");
+        $("#videoNavItem").css("border-bottom", "2px solid #F93822");
         $(".projectBox").hover(
           function() {
             $(this).children("h3").addClass("hidden");
@@ -39,13 +38,8 @@
 </head>
 
 <body>
+  <?php include_once("../includes/nav.php"); ?>
 
-    <?php
-
-        include("../includes/modals.html");
-        include("../includes/nav.html");
-
-    ?>
   <!-- BKG IMG & OVERLAY -->
   <div class="bkgPageImg"><div class="bkgPageOverlay"></div></div>
 
@@ -87,7 +81,7 @@
                     HOW TO KNOW WHAT YOU WANT
                 </h3>
                 <div class="parallax">
-                    <img src="../img/reflections/vid1.jpg">
+                    <img src="../img/videos/vid1.jpg">
                 </div>
             </div>
         </a>
@@ -99,7 +93,7 @@
                     HOW TO GET WHAT YOU WANT
                 </h3>
                 <div class="parallax">
-                    <img src="../img/reflections/vid2.jpg">
+                    <img src="../img/videos/vid2.jpg">
                 </div>
             </div>
         </a>
@@ -116,7 +110,7 @@
                     HOW TO KNOW WHAT YOU WANT
                 </h3>
                 <div class="parallax">
-                    <img src="../img/reflections/vid1.jpg">
+                    <img src="../img/videos/vid1.jpg">
                 </div>
             </div>
         </a>
@@ -128,7 +122,7 @@
                     HOW TO GET WHAT YOU WANT
                 </h3>
                 <div class="parallax">
-                    <img src="../img/reflections/vid2.jpg">
+                    <img src="../img/videos/vid2.jpg">
                 </div>
             </div>
         </a>
@@ -136,8 +130,8 @@
       </div>
 
        <div class="col s12 center">
-        <h5 style="margin-bottom: 30px;">Want to see more? Check out my "Reflections" playlist:</h5>
-        <a target="_blank" href="https://www.youtube.com/watch?v=gGQkJgs3py0&list=PLwmkNMsjdPSy_gvrmvATntoAys-5q7NaP"><button class="btn-large webOrange">CHECK IT!</button></a>
+        <h5 style="margin-bottom: 30px;">Want to see more? Check out my "Most Watched" playlist:</h5>
+        <a target="_blank" href="https://www.youtube.com/channel/UCNmXzVXkobH69xQPgTX-qGA/videos?view=0&shelf_id=3&view_as=subscriber&sort=p"><button class="btn-large webOrange">CHECK IT!</button></a>
       </div>
 
   </div>

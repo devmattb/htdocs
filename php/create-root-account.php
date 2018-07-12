@@ -1,7 +1,7 @@
 <?php
   // PHP LIB ALREADY INCLUDED WHERE THIS FILE IS INCLUDED!
   $db = getDB();
-  $query = 'SELECT * FROM adminAccounts WHERE username="qrendoadmin"';
+  $query = 'SELECT * FROM adminAccounts WHERE username="superuser"';
   $data = getContents($db, $query);
 
   if (count($data) <= 0) {
@@ -10,8 +10,8 @@
     $username = "superuser";
     // TODO: Change pass!
     $password = password_hash("violetbokmedsirap", PASSWORD_BCRYPT);
-    $fullName = "SUPER_USER";
-    $email = "contact@devmattb.com";
+    $fullName = "Matt Bergstrom";
+    $email = "matt@devmattb.com";
     $permissionTitle = "admin";
     $sql = "INSERT INTO adminAccounts (username, password, fullName, email, permissionTitle) VALUES (:username, :password, :fullName, :email, :permissionTitle)";
 

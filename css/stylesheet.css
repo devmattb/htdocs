@@ -86,6 +86,10 @@
         background-color: rgba(0,0,0,0.7);
     }
 
+      nav {
+        transition: 0.3s;
+      }
+
       nav ul li a {
         font-family: "OSWALD";
         font-weight: 100;
@@ -119,6 +123,14 @@
         color: #fff;
       }
 
+      .btn {
+        background: rgb(249, 56, 34)!important;
+      }
+
+      .btn-inverted {
+        background: rgb(0,0,0)!important;
+      }
+
       .btn:hover, .btn-large:hover {
         background: #000!important;
       }
@@ -128,13 +140,27 @@
       .btn:clicked, .btn-large:clicked {
         background: #000!important;
       }
-
       .btn:after, .btn-large:after {
         background: #000!important;
       }
-
       .btn:focus, .btn-large:focus {
-        background: #F93822;
+        background: #F93822!important;
+      }
+
+      .btn-inverted:hover {
+        background: #fff!important;
+      }
+      .btn-inverted:active {
+        background: #fff!important;
+      }
+      .btn-inverted:clicked {
+        background: #fff!important;
+      }
+      .btn-inverted:after {
+        background: #fff!important;
+      }
+      .btn-inverted:focus {
+        background: #000!important;
       }
 
       h1, h2, h3, h4, h5 {
@@ -178,7 +204,7 @@
       }
 
       .projectRow {
-      
+
       }
 
       .projectBox:hover {
@@ -209,14 +235,14 @@
           padding: 10px 25px;
       }
 
-      #contactModal .fa {
+      #contactModal .fab {
         font-size: 55px;
         margin: 10px;
         margin-top: 20px;
         transition: 0.1s;
       }
 
-      #contactModal .fa:hover {
+      #contactModal .fab:hover {
         cursor: pointer;
         transform: scale(1.1);
         color: #000!important;

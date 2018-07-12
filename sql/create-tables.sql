@@ -35,7 +35,17 @@ CREATE TABLE `projectPosts` (
 CREATE TABLE `emailList` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) COLLATE utf8_bin NOT NULL,
-  `password` varchar(255) COLLATE utf8_bin NOT NULL, /* USED TO VOTE/ DEACTIVATE EMAILINGLIST. */
+  `hash` varchar(255) COLLATE utf8_bin NOT NULL, /* USED TO VOTE/ DEACTIVATE EMAILINGLIST. */
+  `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1;
+
+CREATE TABLE `casePosts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `caseTitle` varchar(255) COLLATE utf8_bin NOT NULL,
+  `caseText` varchar(255) COLLATE utf8_bin NOT NULL,
+  `imgSrc` varchar(255) COLLATE utf8_bin NOT NULL,
+  `demoLink` varchar(255) COLLATE utf8_bin NOT NULL,
   `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1;
