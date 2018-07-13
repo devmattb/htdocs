@@ -2,6 +2,7 @@
   // PHP LIB
   require_once("../php/functions.php");
   $db = getDB(); // getDB connection on this page.
+
 ?>
 
 <!DOCTYPE html>
@@ -38,15 +39,16 @@
   <!-- STANDARD HEADER -->
   <?php include("../includes/header.html") ?>
 
-  <!-- DEVMATTB CSS -->
-  <link type="text/css" rel="stylesheet" href="../css/stylesheet.css">
-
   <!-- STANDARD INIT -->
   <script src="../js/init.js" type="text/javascript"></script>
 
+  <!-- DEVMATTB CSS -->
+  <link type="text/css" rel="stylesheet" href="../css/stylesheet.css">
+
   <script>
+
       $(document).ready(function(){
-        window.setTimeout(function(){$(".scale-transition").removeClass("scale-out");},200);
+        // Init
         $("#projectNavItem").css("border-bottom", "2px solid #F93822");
         $(".projectBox").hover(
           function() {
@@ -55,6 +57,7 @@
             $(this).children("h3").removeClass("hidden");
           });
       });
+
   </script>
 
 </head>
@@ -63,7 +66,8 @@
 
     <?php
 
-        include_once("../includes/nav.php");
+        include("../includes/modals.html");
+        include("../includes/nav.php");
 
         // Display Projects Page, Or Project Details Page?
         if (!isset($_GET["id"]) || $_GET["id"] == 0 ) {
@@ -111,10 +115,10 @@
                     echo '
                     <div class="row projectRow">
                     <div class="col s1"></div><!-- DUMMY -->
-                    <div class="col s10 m10 center">
+                    <div class="col s10 m10 center hide-on-small-only">
 
                       <!-- PROJECT ITEM #1 LARGE/MEDIUM -->
-                      <div class="col l6 s12 hide-on-small-only scale-transition scale-out">
+                      <div class="col l6 s12 hide-on-small-only">
                         <a href="?id='.$row["id"].'">
                             <div style="height:30vmin!important;" class="col s12 projectBox z-depth-4 orangeOpacity parallax-container">
                                 <h3 class="center">
@@ -128,7 +132,7 @@
                       </div>
 
                       <!-- PROJECT ITEM #1 SMALL -->
-                      <div class="col s12 hide-on-med-and-up scale-transition scale-out">
+                      <div class="col s12 hide-on-med-and-up">
                         <a href="?id='.$row["id"].'">
                             <div style="height: 40vmin!important;" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
                                 <h3 class="smallHeader center">
@@ -144,7 +148,7 @@
                   } else if ($numReps == 1) {
                     echo '
                       <!-- PROJECT ITEM #2 LARGE/MEDIUM -->
-                      <div class="col l6 s12 hide-on-small-only scale-transition scale-out">
+                      <div class="col l6 s12 hide-on-small-only">
                         <a href="?id='.$row["id"].'">
                           <div style="height:30vmin!important;" class="col s12 projectBox z-depth-4 orangeOpacity parallax-container">
                               <h3 class="center">
@@ -158,7 +162,7 @@
                       </div>
 
                       <!-- PROJECT ITEM #2 SMALL -->
-                      <div class="col l6 s12 hide-on-med-and-up scale-transition scale-out">
+                      <div class="col l6 s12 hide-on-med-and-up">
                         <a href="?id='.$row["id"].'">
                             <div style="height: 40vmin!important;" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
                                 <h3 class="smallHeader center">
@@ -176,6 +180,10 @@
                     $numReps = 0; // Reset pairing
                   }
               } // end ONGOING foreach.
+
+            if (count($dataOngoing) == 1 ) {
+              echo '</div>'; // End LARGE/MED of project pair.
+            }
 
             echo '
               <div class="col s12 white-text">
@@ -208,10 +216,10 @@
                   echo '
                   <div class="row projectRow">
                   <div class="col s1"></div><!-- DUMMY -->
-                  <div class="col s10 m10 center">
+                  <div class="col s10 m10 center hide-on-small-only">
 
                     <!-- PROJECT ITEM #1 LARGE/MEDIUM -->
-                    <div class="col l6 s12 hide-on-small-only scale-transition scale-out">
+                    <div class="col l6 s12 hide-on-small-only">
                       <a href="?id='.$row["id"].'">
                           <div style="height:30vmin!important;" class="col s12 projectBox z-depth-4 orangeOpacity parallax-container">
                               <h3 class="center">
@@ -225,7 +233,7 @@
                     </div>
 
                     <!-- PROJECT ITEM #1 SMALL -->
-                    <div class="col s12 hide-on-med-and-up scale-transition scale-out">
+                    <div class="col s12 hide-on-med-and-up">
                       <a href="?id='.$row["id"].'">
                           <div style="height: 40vmin!important;" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
                               <h3 class="smallHeader center">
@@ -241,7 +249,7 @@
                 } else if ($numReps == 1) {
                   echo '
                     <!-- PROJECT ITEM #2 LARGE/MEDIUM -->
-                    <div class="col l6 s12 hide-on-small-only scale-transition scale-out">
+                    <div class="col l6 s12 hide-on-small-only">
                       <a href="?id='.$row["id"].'">
                         <div style="height:30vmin!important;" class="col s12 projectBox z-depth-4 orangeOpacity parallax-container">
                             <h3 class="center">
@@ -255,7 +263,7 @@
                     </div>
 
                     <!-- PROJECT ITEM #2 SMALL -->
-                    <div class="col l6 s12 hide-on-med-and-up scale-transition scale-out">
+                    <div class="col l6 s12 hide-on-med-and-up">
                       <a href="?id='.$row["id"].'">
                           <div style="height: 40vmin!important;" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
                               <h3 class="smallHeader center">
@@ -271,6 +279,7 @@
                   <div class="col s1"></div><!-- DUMMY -->
                 </div>'; // End LARGE/MED of project pair.
                   $numReps = 0; // Reset pairing
+
                 }
             } // end ONGOING foreach.
           echo '
@@ -406,13 +415,13 @@
 
                         <!-- LARGE -->
                         <div class="hide-on-small-only">
-                            <i class="projectCategoryIcon fas fa-code"></i>
+                            <i class="projectCategoryIcon fa fa-code"></i>
                             <h3>HOW</h3>
                         </div>
 
                         <!-- SMALL -->
                         <div class="hide-on-med-and-up">
-                            <i class="projectCategoryIconSmall fas fa-code"></i>
+                            <i class="projectCategoryIconSmall fa fa-code"></i>
                             <h3 class="smallHeader">HOW</h3>
                         </div>
 
@@ -424,14 +433,12 @@
 
                         </div>
 
-                    </div>
+                    </div>';
 
-
+                if ($numVids != 0) {
+                  echo '
                     <div style="position: relative; top: 20px;" class="col s12 row">
-                    ';
 
-                    if ($numVids != 0) {
-                      echo '
                         <div class="col s12">
 
                           <!-- LARGE -->
@@ -447,14 +454,9 @@
                           </h3>
 
                         </div>
-                        ';
-                      }
 
-                        echo '
-                        <div style="position:relative; top: 20px; left: 30px;" class="col s10 m11 l11 left">
-                            <div class="col l12 s12 row center hide-on-small-only">';
+                        <div style="position:relative; top: 20px; left: 30px;" class="col s11 left">';
                               // Create Project Footer:
-                              if ($numVids != 0) {
                                 for($i = 0; $i < $numVids; $i++ ) {
                                   $vidLink = "";
                                   $vidTitle = "";
@@ -473,39 +475,26 @@
                                     $vidImgSrc = $videoCoverImg3;
                                   }
                                   echo '
+                                  <div class="col l12 m8 s12 row center hide-on-small-only">
+
                                       <!-- LARGE/MEDIUM -->
                                       <a target="_blank" href="'.$vidLink.'">
 
-                                          <div style="height: 230px width: 120%;" class="col m12 l3 projectBox z-depth-4 orangeOpacity parallax-container">
-                                              <h3 style="top: 10vmin; font-size: 3.5vmin;" class="center">
+                                          <div style="height: 230px" class="col m12 l4 projectBox z-depth-4 orangeOpacity parallax-container">
+                                              <h3 style="top: 30%;" class="center">
                                                   '.$vidTitle.'
                                               </h3>
                                               <div class="parallax">
                                                   <img src="'.$vidImgSrc.'">
                                               </div>
                                           </div>
-                                      </a>';
-                                  } // End of for-loop
-                                  echo '
+                                      </a>
+
                                     </div>
                                     <div class="col s1 hide-on-small-only"></div><!-- DUMMY -->
+
                                     <div class="col s12 center hide-on-med-and-up">
-                                  ';
-                                  for($i = 0; $i < $numVids; $i++ ) {
-                                    if ($i == 0) {
-                                      $vidLink = $videoLink1;
-                                      $vidTitle = $videoTitle1;
-                                      $vidImgSrc = $videoCoverImg1;
-                                    } else if ($i == 1) {
-                                      $vidLink = $videoLink2;
-                                      $vidTitle = $videoTitle2;
-                                      $vidImgSrc = $videoCoverImg2;
-                                    } else if ($i == 2) {
-                                      $vidLink = $videoLink3;
-                                      $vidTitle = $videoTitle3;
-                                      $vidImgSrc = $videoCoverImg3;
-                                    }
-                                    echo '
+
                                         <a target="_blank" href="'.$vidLink.'">
                                           <div style="height: 100px" class="col s12 projectBoxSmall z-depth-4 parallax-container">
 
@@ -517,13 +506,14 @@
                                               </div>
                                           </div>
                                         </a>
+
                                   ';
-                                  } // End of for-loop
-                                  echo '</div>';
+                                } // End of for-loop
                               }
 
          // Echo closing tags...
          echo '
+                            </div>
                         </div>
                     </div>
               </div>
@@ -533,6 +523,7 @@
                     BROWSE ALL PROJECTS
                   </button>
                 </a>
+                <br/><br/><br/>
                 </div>
               </div>
           </div>

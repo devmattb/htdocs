@@ -666,7 +666,8 @@
                 <a rel="nofollow" href="https://www.enigio.com/" target="_blank"><img style="width:200px;" src="img/enigio2.png"></a>
                 <a rel="nofollow" href="https://tangar.io/" target="_blank"><img style="width:150px; position: relative; left: 50px; top: -27px;" src="img/tangar_logo.png"></a>
 
-        </div>
+              </div>
+      </div>
     </div>
 
    <!-- SMALL -->
@@ -675,7 +676,7 @@
             I HAVE WORKED WITH:
         </h5>
 
-               <!-- LOGOS OF COMPANIES I HAVE WORKED WITH -->
+        <!-- LOGOS OF COMPANIES I HAVE WORKED WITH -->
         <div class="col s12 partnerLogoDiv left" style="top: 2vmin;">
 
             <div class="col s12 left-align">

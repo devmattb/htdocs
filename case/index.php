@@ -90,7 +90,7 @@
 
       <div class="row col s12">
 
-        <?php if (count($data) == 0 ) { echo '<div class="col s12 center"><h4 style="margin-top: 50px;"> No cases have been added yet. </h4></div>'; } ?>
+        <?php if (count($data) == 0 ) { echo '<div class="col s12 center white-text"><h4 style="margin-top: 50px;"> No cases have been added yet. </h4></div>'; } ?>
         <?php
           foreach($data as $row) {
             $imgSrc = $row["imgSrc"];

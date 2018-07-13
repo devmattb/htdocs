@@ -27,10 +27,10 @@
   }
 
   // Check PostText and PostTitle
-  if ( empty($_POST["title"]) || empty($_POST["subtitle"]) || empty($_POST["whatText"]) || empty($_POST["whyText"]) || empty($_POST["howText"]) || empty($_POST["ongoingProject"])) {
+  if ( empty($_POST["caseTitle"]) || empty($_POST["caseText"]) || empty($_POST["demoLink"]) ) {
       $_SESSION["error"] = 2;
       echo "bad txt/title";
-      header("Location: ../admin/new-project-post");
+      header("Location: ../admin/new-case-post");
       return;
   }
 
@@ -51,7 +51,7 @@
   if ($uploadOk == 0) {
       echo "Sorry, your file was not uploaded.";
       $_SESSION["error"] = 2;
-      header("Location: ../admin/new-project-post");
+      header("Location: ../admin/new-case-post");
       return;
   // if everything is ok, try to upload file
   } else {
@@ -61,37 +61,25 @@
       } else {
         echo "Sorry, there was an error uploading your file.";
         $_SESSION["error"] = 2;
-        header("Location: ../admin/new-project-post");
+        header("Location: ../admin/new-case-post");
         return;
       }
   }
 
   // IMPORTANT!!!
   $pathToFileFromBlog = "../img/uploads/";
-  $projectCoverImgSrc = $pathToFileFromBlog.basename( $_FILES["fileToUpload"]["name"]);
+  $imgSrc = $pathToFileFromBlog.basename( $_FILES["fileToUpload"]["name"]);
 
-  // Get the author name, through the authenticated session variable, that stores
-  // the adminAccounts ID of the current user:
-  $q = 'SELECT * FROM adminAccounts WHERE id="'.$_SESSION["authenticated"].'"';
-  $userData = getContents($db, $q);
-  $fullName = "Anonymous";
-  foreach($userData as $row) {
-    $fullName = $row["fullName"];
-  }
+  $caseTitle = getSecureData($_POST["caseTitle"]);
+  $caseText = getSecureData($_POST["caseText"]);
+  $demoLink= getSecureData($_POST["demoLink"]);
 
-  $createdBy = $fullName;
-  $title = getSecureData($_POST["title"]);
-  $subtitle = getSecureData($_POST["subtitle"]);
-  $whatText = getSecureData($_POST["whatText"]);
-  $whyText = getSecureData($_POST["whyText"]);
-  $howText = getSecureData($_POST["howText"]);
-  $ongoingProject = getSecureData($_POST["ongoingProject"]);
-  $sql = "INSERT INTO projectPosts (title, subtitle, whatText, whyText, howText, projectCoverImgSrc, ongoingProject, createdBy) VALUES (:title, :subtitle, :whatText, :whyText, :howText, :projectCoverImgSrc, :ongoingProject, :createdBy)";
+  $sql = "INSERT INTO casePosts (caseTitle, caseText, imgSrc, demoLink) VALUES (:caseTitle, :caseText, :imgSrc, :demoLink)";
 
   // Execute command:
   $query = $db->prepare($sql);
-  $query->execute(array(':title'=>$title, ':subtitle'=>$subtitle, ':whatText'=>$whatText, ':whyText'=>$whyText, ':howText'=>$howText, ':projectCoverImgSrc'=>$projectCoverImgSrc, ':ongoingProject'=>$ongoingProject, ':createdBy'=>$createdBy));
+  $query->execute(array(':caseTitle'=>$caseTitle, ':caseText'=>$caseText, ':imgSrc'=>$imgSrc, ':demoLink'=>$demoLink));
 
   // Redirect
-  header("Location: ../admin/new-project-post");
+  header("Location: ../admin/new-case-post");
 ?>

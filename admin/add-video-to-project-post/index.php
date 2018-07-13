@@ -11,7 +11,7 @@
 <head>
 <meta charset="utf-8">
   <!-- Title SEO -->
-  <title>IT Expert | Devmattb - Admin - Create A New Project Post</title>
+  <title>IT Expert | Devmattb - Admin - Add A Video To A Project Post</title>
 
   <!-- Establish DB Connection: -->
   <?php $db = getDB(); ?>
@@ -28,6 +28,7 @@
 
   <!-- Error Handling visualization -->
   <?php include("../../php/errors.php"); ?>
+  <?php $formLink = "../../php/add-video-to-project-post.php?id=".$_GET["id"]; ?>
 
 </head>
 
@@ -38,27 +39,27 @@
     <div class="row">
       <div class="col s12">
         <br/><br/><br/><br/>
-        <form action="../../php/new-case-post.php" method="post" enctype="multipart/form-data" class="col s10 offset-s1">
-          <h4 style="margin-left: 10px;"> Create a New Case Post! </h4>
+        <form action="<?php echo $formLink?>" method="post" enctype="multipart/form-data" class="col s10 offset-s1">
+          <h4 style="margin-left: 10px;"> Add A Video To A Project Post </h4>
           <br/>
 
-          <!-- Post Titel: -->
+          <!-- Video Title: -->
           <div class="input-field col s12">
-            <input name="caseTitle" placeholder="Card Title..." id="caseTitle" type="text">
-            <label for="caseTitle">Card Title</label>
+            <input name="videoTitle" placeholder="Post Title..." id="videoTitle" type="text">
+            <label for="videoTitle">Video Title</label>
           </div>
 
-          <!-- Case text: -->
+          <!-- Video Link: -->
           <div class="input-field col s12">
-            <textarea name="caseText" id="caseText" class="materialize-textarea"></textarea>
-            <label for="caseText">Card Text</label>
+            <input name="videoLink" placeholder="E.g. http://devmattb.com/" id="videoLink" type="text">
+            <label for="videoLink">Video Link</label>
           </div>
 
-          <!-- Upload Project Cover Img -->
+          <!-- Upload VIDEO THUMBNAIL-->
           <div class="col s12 file-field input-field">
             <div class="btn webOrange">
               <i class="fas fa-upload"></i> &nbsp;
-              <span>UPLOAD CARD IMAGE</span>
+              <span>UPLOAD VIDEO THUMBNAIL</span>
               <input type="file" name="fileToUpload" id="fileToUpload">
             </div>
             <div class="file-path-wrapper">
@@ -66,15 +67,8 @@
             </div>
           </div>
 
-          <!-- Demo Link: -->
-          <div class="input-field col s12">
-            <input name="demoLink" placeholder="E.g. http://devmattb.com/" id="demoLink" type="text">
-            <label for="demoLink">Demo Link</label>
-          </div>
-
-
           <div class="col s12">
-            <button type="submit" class="btn green"> CREATE POST! </button>
+            <button type="submit" class="btn green"> ADD VIDEO TO POST! </button>
           </div>
         </form>
 

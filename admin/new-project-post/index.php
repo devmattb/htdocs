@@ -42,23 +42,49 @@
           <h4 style="margin-left: 10px;"> Create a New Project Post! </h4>
           <br/>
 
-          <!-- Inlägg Titel: -->
+          <!-- Post Titel: -->
           <div class="input-field col s12">
-            <input name="postTitle" placeholder="Post Title..." id="postTitle" type="text">
-            <label for="postTitle">Title</label>
+            <input name="title" placeholder="Post Title..." id="title" type="text">
+            <label for="title">Title</label>
           </div>
 
-          <!-- Inlägg text: -->
           <div class="input-field col s12">
-            <textarea name="postText" id="postText" class="materialize-textarea"></textarea>
-            <label for="postText">Post Text</label>
+            <input name="subtitle" placeholder="Post Title..." id="subtitle" type="text">
+            <label for="subtitle">Subtitle</label>
           </div>
 
-          <!-- Lägg till bild! -->
+          <!-- WHAT text: -->
+          <div class="input-field col s12">
+            <textarea name="whatText" id="whatText" class="materialize-textarea"></textarea>
+            <label for="whatText">WHAT Text</label>
+          </div>
+
+          <!-- WHY text: -->
+          <div class="input-field col s12">
+            <textarea name="whyText" id="whyText" class="materialize-textarea"></textarea>
+            <label for="whyText">WHY Text</label>
+          </div>
+
+          <!-- HOW text: -->
+          <div class="input-field col s12">
+            <textarea name="howText" id="howText" class="materialize-textarea"></textarea>
+            <label for="howText">HOW Text</label>
+          </div>
+
+          <div class="input-field col s12">
+          <select name="ongoingProject">
+            <option value="" disabled selected>Choose Option</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+          <label>Is This An Ongoing Project?</label>
+        </div>
+
+          <!-- Upload Project Cover Img -->
           <div class="col s12 file-field input-field">
             <div class="btn webOrange">
               <i class="fas fa-upload"></i> &nbsp;
-              <span>UPLOAD PICTURE</span>
+              <span>UPLOAD COVER IMAGE</span>
               <input type="file" name="fileToUpload" id="fileToUpload">
             </div>
             <div class="file-path-wrapper">
@@ -67,6 +93,7 @@
           </div>
           <div class="col s12">
             <button type="submit" class="btn green"> CREATE POST! </button>
+            <p style="margin-left: 10px;"><b>* Adding videos related to a project post, can be done in the DELETE/UPDATE section.</b></p>
           </div>
         </form>
 

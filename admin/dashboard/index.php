@@ -51,11 +51,11 @@
     <div class="card blue-grey darken-1 z-depth-2 scale-transition scale-out">
       <div class="card-content white-text">
         <span class="card-title">Manage Project Posts:</span>
-        <p> Create and Delete Project posts for the "Project" page. </p>
+        <p> Create and Delete Project posts for the "Project" page. Some updates can also be made to the project posts. </p>
       </div>
       <div class="card-action">
         <a href="../new-project-post/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> CREATE </button></a>
-        <?php if ($permissionTitle == "admin") { echo '<a href="../delete-project-post/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> DELETE </button></a>';}?>
+        <a href="../delete-project-post/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> UPDATE / DELETE </button></a>
       </div>
     </div>
 
@@ -66,10 +66,9 @@
       </div>
       <div class="card-action">
         <a href="../new-case-post/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> CREATE </button></a>
-        <?php if ($permissionTitle == "admin") { echo '<a href="../delete-case-post/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> DELETE </button></a>';}?>
+        <a href="../delete-case-post/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> DELETE </button></a>
       </div>
     </div>
-
 
     <div class="card blue-grey darken-1 z-depth-2 scale-transition scale-out">
       <div class="card-content white-text">

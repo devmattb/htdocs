@@ -20,7 +20,9 @@
   ?>
       <script>
           $(document).ready(function(){
-             M.toast({html: 'Inloggad!', classes: 'green'}, 8000);
+            toastHTML +=
+              `I've successfully logged you in!</span>`;
+            M.toast({html: toastHTML, classes: 'white'}, 15000);
           });
       </script>
   <?php
@@ -28,7 +30,9 @@
   ?>
       <script>
           $(document).ready(function(){
-             M.toast({html: 'Misslyckades att logga in!', classes: 'red'}, 8000);
+            errorToastHTML +=
+              `I've failed to log you in. Please try again, or contact me so I can resolve this issue.</span>`;
+            M.toast({html: errorToastHTML, classes: 'red'}, 25000);
           });
       </script>
   <?php
@@ -36,7 +40,9 @@
   ?>
       <script>
           $(document).ready(function(){
-             M.toast({html: 'Misslyckades att skapa inlägg!', classes: 'red'}, 8000);
+            errorToastHTML +=
+              `I've failed to publish the post. Please try again, or contact me so I can resolve this issue.</span>`;
+            M.toast({html: errorToastHTML, classes: 'red'}, 25000);
           });
       </script>
   <?php
@@ -44,7 +50,9 @@
   ?>
       <script>
           $(document).ready(function(){
-             M.toast({html: 'Inlägg Skapat!', classes: 'green'}, 8000);
+            toastHTML +=
+              `I've successfully created the post!</span>`;
+            M.toast({html: toastHTML, classes: 'white'}, 15000);
           });
       </script>
   <?php
@@ -52,7 +60,9 @@
   ?>
       <script>
           $(document).ready(function(){
-             M.toast({html: 'Misslyckades att radera inlägg!', classes: 'red'}, 8000);
+            errorToastHTML +=
+              `I've failed to delete the post. Please try again, or contact me so I can resolve this issue.</span>`;
+            M.toast({html: errorToastHTML, classes: 'red'}, 25000);
           });
       </script>
   <?php
@@ -60,7 +70,9 @@
   ?>
       <script>
           $(document).ready(function(){
-             M.toast({html: 'Inlägg Raderat!', classes: 'green'}, 8000);
+            toastHTML +=
+              `I've successfully deleted the post!</span>`;
+            M.toast({html: toastHTML, classes: 'white'}, 15000);
           });
       </script>
   <?php
@@ -68,7 +80,9 @@
   ?>
       <script>
           $(document).ready(function(){
-             M.toast({html: 'Misslyckades att skapa konto!', classes: 'red'}, 8000);
+            errorToastHTML +=
+              `I've failed to create the account. Please try again, or contact me so I can resolve this issue.</span>`;
+            M.toast({html: errorToastHTML, classes: 'red'}, 25000);
           });
       </script>
   <?php
@@ -76,7 +90,9 @@
   ?>
       <script>
           $(document).ready(function(){
-             M.toast({html: 'Konto skapat!', classes: 'green'}, 8000);
+            toastHTML +=
+              `I've successfully created the account!</span>`;
+            M.toast({html: toastHTML, classes: 'white'}, 15000);
           });
       </script>
   <?php
@@ -84,7 +100,9 @@
   ?>
       <script>
           $(document).ready(function(){
-             M.toast({html: 'Misslyckades att radera konto!', classes: 'red'}, 8000);
+            errorToastHTML +=
+              `I've failed to delete the account. Please try again, or contact me so I can resolve this issue.</span>`;
+            M.toast({html: errorToastHTML, classes: 'red'}, 25000);
           });
       </script>
   <?php
@@ -92,7 +110,9 @@
   ?>
       <script>
           $(document).ready(function(){
-             M.toast({html: 'Konto raderat!', classes: 'red'}, 8000);
+            toastHTML +=
+              `I've successfully deleted the account!</span>`;
+            M.toast({html: toastHTML, classes: 'white'}, 15000);
           });
       </script>
   <?php
@@ -110,7 +130,9 @@
   ?>
       <script>
           $(document).ready(function(){
-             M.toast({html: 'Lösenorden matchade inte!', classes: 'red'}, 8000);
+            errorToastHTML +=
+              `I'm sorry, the passwords didn't match.</span>`;
+            M.toast({html: errorToastHTML, classes: 'red'}, 25000);
           });
       </script>
   <?php
@@ -118,7 +140,9 @@
     ?>
         <script>
             $(document).ready(function(){
-               M.toast({html: 'Jobb Skapat!', classes: 'green'}, 8000);
+              toastHTML +=
+                `I've successfully published the job search!</span>`;
+              M.toast({html: toastHTML, classes: 'white'}, 15000);
             });
         </script>
     <?php
@@ -126,7 +150,9 @@
     ?>
         <script>
             $(document).ready(function(){
-               M.toast({html: 'Misslyckades att radera jobb!', classes: 'red'}, 8000);
+              errorToastHTML +=
+                `I've failed to delete the job search. Please try again, or contact me so I can resolve this issue.</span>`;
+              M.toast({html: errorToastHTML, classes: 'red'}, 25000);
             });
         </script>
     <?php
@@ -134,7 +160,9 @@
     ?>
         <script>
             $(document).ready(function(){
-               M.toast({html: 'Jobb Raderat!', classes: 'green'}, 8000);
+              toastHTML +=
+                `nav.phpfully deleted the job search!</span>`;
+              M.toast({html: toastHTML, classes: 'white'}, 15000);
             });
         </script>
     <?php
@@ -142,7 +170,9 @@
     ?>
         <script>
             $(document).ready(function(){
-               M.toast({html: 'Framsidan Uppdaterad!', classes: 'green'}, 8000);
+              toastHTML +=
+                `TODOOOOOOOOOOO</span>`;
+              M.toast({html: toastHTML, classes: 'white'}, 15000);
             });
         </script>
   <?php
@@ -150,7 +180,9 @@
         ?>
             <script>
                 $(document).ready(function(){
-                   M.toast({html: 'Ansökan Skickad!', classes: 'green'}, 8000);
+                  toastHTML +=
+                    `I've received the job application. You'll hear from me soon!</span>`;
+                  M.toast({html: toastHTML, classes: 'white'}, 15000);
                 });
             </script>
   <?php

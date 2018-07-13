@@ -13,7 +13,7 @@ VALUES
     <br><br>
     When it comes the the software I'll be writing, I will use the C programming language, combined with Assembler.",
     "../img/chipkit_tetris/chip_2.png",
-    false,
+    true,
     "Matt",
     "TETRIS SHOWCASE",
     "../img/chipkit_tetris/tetris-background.jpg",

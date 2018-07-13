@@ -54,7 +54,20 @@
           ?>
             <li class="hoverable tooltipped" data-position="bottom" data-tooltip="Click for detailed info!">
               <div class="collapsible-header">
-                <?php echo $title ?>
+                <div class="col s12">
+                  <?php echo $title ?>
+                </div>
+                <?php
+                  if ( !isset($row["videoLink3"]) ) {
+                    echo '
+                    <form class="col s12 offset-l8 offset-m4 offset-s2 right" action="../add-video-to-project-post/?id='.$id.'" method="post" enctype="multipart/form-data" >
+                      <button type="submit" style="margin-top: 0px;" class="right btn waves-effect waves-light green hoverable">
+                        VIDEO+
+                      </button>
+                    </form>
+                    ';
+                  }
+                ?>
                 <form class="col s12" action="<?php echo '../../php/delete-project-post.php?id='.$id.'&imgSrc='.$imgSrc?>" method="post" enctype="multipart/form-data" >
                   <button type="submit" style="margin-top: 0px;" class="right btn waves-effect waves-light red hoverable">DELETE</button>
                 </form>
