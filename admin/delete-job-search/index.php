@@ -33,16 +33,13 @@
 </head>
 
 <body>
-  <!-- PRELOADER -->
-  <?php include("../../includes/preloader.html") ?>
-
   <!-- Page Content -->
   <main>
     <div class="row">
       <div class="col s12">
       <br/><br/><br/><br/>
       <div class="col s10 offset-s1">
-        <h4> Radera Rekryteringsroller: </h4>
+        <h4> Delete Job Searches: </h4>
         <ul class="collapsible">
           <?php
             $query = 'SELECT * FROM job ORDER BY id DESC';
@@ -54,21 +51,21 @@
               $longText = $row["jobLongText"];
               $qualificationListItems = explode(",",$row["jobQualifications"]);
           ?>
-          <li class="hoverable tooltipped" data-position="bottom" data-tooltip="Klicka för att se detaljerad info!">
+          <li class="hoverable tooltipped" data-position="bottom" data-tooltip="Click for detailed info!">
             <div class="collapsible-header">
-              <i class="fas fa-user-tie blue-text text-darken-4"></i> &nbsp; <span style="font-weight: 900;"><?php echo $title; ?></span>
+              <i class="fas fa-user-tie webOrange-text text-darken-4"></i> &nbsp; <span style="font-weight: 900;"><?php echo $title; ?></span>
               <form class="col s12" action="<?php echo '../../php/delete-job.php?id='.$id?>" method="post" enctype="multipart/form-data" >
-                <button type="submit" style="margin-top: 0px;" class="right btn waves-effect waves-light red hoverable">RADERA</button>
+                <button type="submit" style="margin-top: 0px;" class="right btn waves-effect waves-light red hoverable">DELETE</button>
               </form>
             </div>
             <div class="collapsible-body">
                 <p style="font-weight: 900; letter-spacing: 0.5px;">
-                  Kort Beskrivning:
+                  Short Description:
                 <p>
                 <blockquote><?php echo $text; ?></blockquote>
                 <hr/>
                 <p style="font-weight: 900; letter-spacing: 0.5px;">
-                  För att lyckas på tjänsten behöver du ha följande erfarenheter:
+                  Required Experience:
                 <p>
                 <ul class="browser-default" style="list-style: square!important;">
                   <?php
@@ -86,7 +83,7 @@
                     echo
                     '<br/>
                     <p style="font-weight: 900; letter-spacing: 0.5px;">
-                      Mer Information:
+                      More Information:
                     <p>
                     <p>'.$longText.'</p><br/><br/>';
                   } else {

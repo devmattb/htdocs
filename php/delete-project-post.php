@@ -14,10 +14,10 @@
     return;
   }
 
-  $id = $_GET["id"];
-  $imgSrc = $_GET["imgSrc"];
+  $id = getSecureData($_GET["id"]);
+  $imgSrc = getSecureData($_GET["imgSrc"]);
 
-  $sql = "DELETE FROM blogPost WHERE id=$id";
+  $sql = "DELETE FROM projectPosts WHERE id=$id";
 
   // Execute command:
   $query = $db->prepare($sql);

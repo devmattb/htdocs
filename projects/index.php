@@ -46,6 +46,7 @@
 
   <script>
       $(document).ready(function(){
+        window.setTimeout(function(){$(".scale-transition").removeClass("scale-out");},200);
         $("#projectNavItem").css("border-bottom", "2px solid #F93822");
         $(".projectBox").hover(
           function() {
@@ -113,7 +114,7 @@
                     <div class="col s10 m10 center">
 
                       <!-- PROJECT ITEM #1 LARGE/MEDIUM -->
-                      <div class="col l6 s12 hide-on-small-only">
+                      <div class="col l6 s12 hide-on-small-only scale-transition scale-out">
                         <a href="?id='.$row["id"].'">
                             <div style="height:30vmin!important;" class="col s12 projectBox z-depth-4 orangeOpacity parallax-container">
                                 <h3 class="center">
@@ -127,7 +128,7 @@
                       </div>
 
                       <!-- PROJECT ITEM #1 SMALL -->
-                      <div class="col s12 hide-on-med-and-up">
+                      <div class="col s12 hide-on-med-and-up scale-transition scale-out">
                         <a href="?id='.$row["id"].'">
                             <div style="height: 40vmin!important;" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
                                 <h3 class="smallHeader center">
@@ -143,7 +144,7 @@
                   } else if ($numReps == 1) {
                     echo '
                       <!-- PROJECT ITEM #2 LARGE/MEDIUM -->
-                      <div class="col l6 s12 hide-on-small-only">
+                      <div class="col l6 s12 hide-on-small-only scale-transition scale-out">
                         <a href="?id='.$row["id"].'">
                           <div style="height:30vmin!important;" class="col s12 projectBox z-depth-4 orangeOpacity parallax-container">
                               <h3 class="center">
@@ -157,7 +158,7 @@
                       </div>
 
                       <!-- PROJECT ITEM #2 SMALL -->
-                      <div class="col l6 s12 hide-on-med-and-up">
+                      <div class="col l6 s12 hide-on-med-and-up scale-transition scale-out">
                         <a href="?id='.$row["id"].'">
                             <div style="height: 40vmin!important;" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
                                 <h3 class="smallHeader center">
@@ -210,7 +211,7 @@
                   <div class="col s10 m10 center">
 
                     <!-- PROJECT ITEM #1 LARGE/MEDIUM -->
-                    <div class="col l6 s12 hide-on-small-only">
+                    <div class="col l6 s12 hide-on-small-only scale-transition scale-out">
                       <a href="?id='.$row["id"].'">
                           <div style="height:30vmin!important;" class="col s12 projectBox z-depth-4 orangeOpacity parallax-container">
                               <h3 class="center">
@@ -224,7 +225,7 @@
                     </div>
 
                     <!-- PROJECT ITEM #1 SMALL -->
-                    <div class="col s12 hide-on-med-and-up">
+                    <div class="col s12 hide-on-med-and-up scale-transition scale-out">
                       <a href="?id='.$row["id"].'">
                           <div style="height: 40vmin!important;" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
                               <h3 class="smallHeader center">
@@ -240,7 +241,7 @@
                 } else if ($numReps == 1) {
                   echo '
                     <!-- PROJECT ITEM #2 LARGE/MEDIUM -->
-                    <div class="col l6 s12 hide-on-small-only">
+                    <div class="col l6 s12 hide-on-small-only scale-transition scale-out">
                       <a href="?id='.$row["id"].'">
                         <div style="height:30vmin!important;" class="col s12 projectBox z-depth-4 orangeOpacity parallax-container">
                             <h3 class="center">
@@ -254,7 +255,7 @@
                     </div>
 
                     <!-- PROJECT ITEM #2 SMALL -->
-                    <div class="col l6 s12 hide-on-med-and-up">
+                    <div class="col l6 s12 hide-on-med-and-up scale-transition scale-out">
                       <a href="?id='.$row["id"].'">
                           <div style="height: 40vmin!important;" class="col s12 projectBoxSmall z-depth-4 orangeOpacitySmall parallax-container">
                               <h3 class="smallHeader center">

@@ -33,8 +33,6 @@
 </head>
 
 <body>
-  <!-- PRELOADER -->
-  <?php include("../../includes/preloader.html") ?>
 
   <!-- Page Content -->
   <main>
@@ -42,7 +40,7 @@
       <div class="col s12">
       <br/><br/><br/><br/>
       <div class="col s10 offset-s1">
-        <h4> Radera Konton: </h4>
+        <h4> Delete Accounts: </h4>
         <ul class="collapsible">
           <?php
             $query = 'SELECT * FROM adminAccounts WHERE id <> "'.$_SESSION["authenticated"].'"  ORDER BY id DESC';
@@ -55,31 +53,31 @@
               $permissionTitle = $row["permissionTitle"];
               $timestamp = $row["createdAt"];
           ?>
-            <li class="hoverable tooltipped" data-position="bottom" data-tooltip="Klicka för att se detaljerad info!">
+            <li class="hoverable tooltipped" data-position="bottom" data-tooltip="Click for detailed info!">
               <div class="collapsible-header">
 
-                <i style="font-size: 18px;" class="fa fa-user blue-text"></i>
+                <i style="font-size: 18px;" class="fa fa-user webOrange-text"></i>
                 <b><?php echo $user ?></b>
                 <span
                   style="margin-left: 30px; margin-top: 2px; width: 100px;"
-                  class="<?php if ( $permissionTitle == 'admin' ){ echo 'new badge red'; } else { echo 'new badge blue'; } ?>"
+                  class="<?php if ( $permissionTitle == 'admin' ){ echo 'new badge red'; } else { echo 'new badge webOrange'; } ?>"
                   data-badge-caption=<?php echo $permissionTitle ?>
                 ></span>
 
                 <form class="col s12" action="<?php echo '../../php/delete-account.php?id='.$id?>" method="post" enctype="multipart/form-data" >
-                  <button type="submit" style="margin-top: 0px;" class="right btn waves-effect waves-light red hoverable">RADERA</button>
+                  <button type="submit" style="margin-top: 0px;" class="right btn waves-effect waves-light red hoverable">DELETE</button>
                 </form>
               </div>
               <div class="collapsible-body">
                 <div  style="margin-left: 20px;">
                   <span>
-                    <b> Fullständigt Namn: </b>
+                    <b> Full Name: </b>
                     <?php echo $fullName ?>
                     <br/><br/>
-                    <b> Epost: </b>
+                    <b> Email: </b>
                     <?php echo $email ?>
                     <br/><br/>
-                    <span class="iconPair"> <i class="far fa-calendar-alt"></i>&nbsp;&nbsp; <b>Skapades:</b> <?php echo $timestamp?> </span>
+                    <span class="iconPair"> <i class="far fa-calendar-alt"></i>&nbsp;&nbsp; <b>Created:</b> <?php echo $timestamp?> </span>
                   </span>
                 </div>
               </div>

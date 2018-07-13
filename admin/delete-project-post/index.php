@@ -32,8 +32,6 @@
 </head>
 
 <body>
-  <!-- PRELOADER -->
-  <?php include("../../includes/preloader.html") ?>
 
   <!-- Page Content -->
   <main>
@@ -41,24 +39,24 @@
       <div class="col s12">
       <br/><br/><br/><br/>
       <div class="col s10 offset-s1">
-        <h4> Radera Inlägg: </h4>
+        <h4> Delete Project Posts </h4>
         <ul class="collapsible">
           <?php
-            $query = 'SELECT * FROM blogPost ORDER BY id DESC';
+            $query = 'SELECT * FROM projectPosts ORDER BY id DESC';
             $data = getContents($db, $query);
             foreach($data as $row) {
               $id = $row["id"];
-              $imgSrc = $row["imgSrc"];
-              $title = $row["postTitle"];
-              $text = $row["postText"];
+              $imgSrc = $row["projectCoverImgSrc"];
+              $title = $row["title"];
+              $text = $row["whatText"];
               $author = $row["createdBy"];
               $timestamp = $row["createdAt"];
           ?>
-            <li class="hoverable tooltipped" data-position="bottom" data-tooltip="Klicka för att se detaljerad info!">
+            <li class="hoverable tooltipped" data-position="bottom" data-tooltip="Click for detailed info!">
               <div class="collapsible-header">
                 <?php echo $title ?>
                 <form class="col s12" action="<?php echo '../../php/delete-project-post.php?id='.$id.'&imgSrc='.$imgSrc?>" method="post" enctype="multipart/form-data" >
-                  <button type="submit" style="margin-top: 0px;" class="right btn waves-effect waves-light red hoverable">RADERA</button>
+                  <button type="submit" style="margin-top: 0px;" class="right btn waves-effect waves-light red hoverable">DELETE</button>
                 </form>
               </div>
               <div class="collapsible-body">
@@ -71,7 +69,7 @@
                   <span class="iconPair"> <i class="fas fa-user"></i>&nbsp; <?php echo $author?> </span>
                   <span class="iconPair"> <i class="far fa-calendar-alt"></i>&nbsp;&nbsp; <?php echo $timestamp?> </span>
                 </span> <br/><br/>
-                <span><b>Bild: </b> </span><br/>
+                <span><b>Picture: </b> </span><br/>
                 <img style="max-width: 100%" src="<?php echo '../'.$imgSrc?>" />
               </div>
             </li>

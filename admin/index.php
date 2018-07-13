@@ -5,7 +5,7 @@
   session_start();
   // Make sure system is stable and CRYPT BLOWFISH is enabled.
   if (!(defined("CRYPT_BLOWFISH") && CRYPT_BLOWFISH)) {
-    echo "WARNING: CRYPT_BLOWFISH är avaktiverad. Administrationssytemet nere tills vidare. Kontakta MMR Solutions AB.";
+    echo "WARNING: CRYPT_BLOWFISH is deactivated. Contact IT Support.";
   }
 ?>
 
@@ -79,12 +79,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="col s12 m8 offset-m2 l6 offset-l3">
           <h4>Devmattb Admin Login</h4>
           <form method="post">
-              <label for="username">Användarnamn:</label>
+              <label for="username">Username:</label>
               <input id="username" name="username" type="text" required>
-              <label for="password">Lösenord:</label>
+              <label for="password">Password:</label>
               <input id="password" name="password" type="password" required>
               <br/><br/>
-              <input type="submit" value="Logga In" class="btn blue ">
+              <input type="submit" value="Login" class="btn webOrange ">
           </form>
         </div>
     </div>

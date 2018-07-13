@@ -124,7 +124,7 @@
       }
 
       .btn {
-        background: rgb(249, 56, 34)!important;
+        background: rgb(249, 56, 34);
       }
 
       .btn-inverted {
@@ -149,6 +149,7 @@
 
       .btn-inverted:hover {
         background: #fff!important;
+        color: #000!important;
       }
       .btn-inverted:active {
         background: #fff!important;
@@ -532,15 +533,15 @@
     }
 
     .breadcrumb:hover  {
-        color: #F93822;
+        color: #F93822!important;
     }
 
     .breadcrumb:before {
-        color: #000;
+        color: #000!important;
     }
 
     .breadcrumb, .breadcrumb:last-child {
-       color: #000;
+       color: #000!important;
     }
 
     .partnerLogoDiv img:hover {

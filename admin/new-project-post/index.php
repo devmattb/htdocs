@@ -32,8 +32,6 @@
 </head>
 
 <body>
-  <!-- PRELOADER -->
-  <?php include("../../includes/preloader.html") ?>
 
   <!-- Page Content -->
   <main>
@@ -41,26 +39,26 @@
       <div class="col s12">
         <br/><br/><br/><br/>
         <form action="../../php/new-project-post.php" method="post" enctype="multipart/form-data" class="col s10 offset-s1">
-          <h4 style="margin-left: 10px;"> Gör ett nytt inlägg! </h4>
+          <h4 style="margin-left: 10px;"> Create a New Project Post! </h4>
           <br/>
 
           <!-- Inlägg Titel: -->
           <div class="input-field col s12">
-            <input name="postTitle" placeholder="Inläggstitel..." id="postTitle" type="text">
-            <label for="postTitle">Titel</label>
+            <input name="postTitle" placeholder="Post Title..." id="postTitle" type="text">
+            <label for="postTitle">Title</label>
           </div>
 
           <!-- Inlägg text: -->
           <div class="input-field col s12">
             <textarea name="postText" id="postText" class="materialize-textarea"></textarea>
-            <label for="postText">Inläggstext...</label>
+            <label for="postText">Post Text</label>
           </div>
 
           <!-- Lägg till bild! -->
           <div class="col s12 file-field input-field">
-            <div class="btn blue">
+            <div class="btn webOrange">
               <i class="fas fa-upload"></i> &nbsp;
-              <span>LADDA UPP BILD</span>
+              <span>UPLOAD PICTURE</span>
               <input type="file" name="fileToUpload" id="fileToUpload">
             </div>
             <div class="file-path-wrapper">
@@ -68,7 +66,7 @@
             </div>
           </div>
           <div class="col s12">
-            <button type="submit" class="btn blue"> Skapa Inlägg! </button>
+            <button type="submit" class="btn green"> CREATE POST! </button>
           </div>
         </form>
 

@@ -50,57 +50,78 @@
 
     <div class="card blue-grey darken-1 z-depth-2 scale-transition scale-out">
       <div class="card-content white-text">
-        <span class="card-title">Hantera Nyheter:</span>
-        <p>Skapa nya inlägg på nyhetssidan, och radera gamla. Klicka in på någon av knapparna nedan för att gå vidare. </p>
+        <span class="card-title">Manage Project Posts:</span>
+        <p> Create and Delete Project posts for the "Project" page. </p>
       </div>
       <div class="card-action">
-        <a href="../new-project-post/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> Skapa Inlägg </button></a>
-        <?php if ($permissionTitle == "admin") { echo '<a href="../delete-project-post/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> Radera Inlägg </button></a>';}?>
+        <a href="../new-project-post/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> CREATE </button></a>
+        <?php if ($permissionTitle == "admin") { echo '<a href="../delete-project-post/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> DELETE </button></a>';}?>
       </div>
     </div>
+
+    <div class="card blue-grey darken-1 z-depth-2 scale-transition scale-out">
+      <div class="card-content white-text">
+        <span class="card-title">Manage Case Posts:</span>
+        <p> Create and Delete Case posts for the "Case" page. </p>
+      </div>
+      <div class="card-action">
+        <a href="../new-case-post/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> CREATE </button></a>
+        <?php if ($permissionTitle == "admin") { echo '<a href="../delete-case-post/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> DELETE </button></a>';}?>
+      </div>
+    </div>
+
+
+    <div class="card blue-grey darken-1 z-depth-2 scale-transition scale-out">
+      <div class="card-content white-text">
+        <span class="card-title">Send a Newsletter</span>
+        <p> Write a newsletter and send in to all users on the email list! </p>
+      </div>
+      <div class="card-action">
+        <a href="../send-newsletter/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> WRITE NEWSLETTER </button></a>
+      </div>
+    </div>
+
+    <!-- <div class="card blue-grey darken-1 z-depth-2 scale-transition scale-out">
+      <div class="card-content white-text">
+        <span class="card-title">Manage Job Search:</span>
+        <p>
+          Add or Delete a job search for the webpage.
+        </p>
+      </div>
+      <div class="card-action">
+        <a href="../new-job-search/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> CREATE </button></a>
+        <a href="../delete-job-search/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> DELETE </button></a>
+      </div>
+    </div> -->
+
+
     <?php
       if ($permissionTitle == "admin") { echo '
         <div class="card blue-grey darken-1 z-depth-2 scale-transition scale-out">
           <div class="card-content white-text">
-            <span class="card-title">Hantera Konton:</span>
+            <span class="card-title">Manage Accounts:</span>
             <p>
-               Skapa nya konton och radera gamla. Dessa konton fungerar som administrationskonton,
-               och kan alla komma åt adminverktygen. <br/>
-               Klicka in på någon av knapparna nedan för att gå vidare.
+               Create and Delete accounts for the administration system.
             </p>
           </div>
           <div class="card-action">
-            <a href="../new-account/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> Skapa Nytt Konto </button></a>
-            <a href="../delete-account/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> Radera Konton </button></a>
-          </div>
-        </div>
-
-        <div class="card blue-grey darken-1 z-depth-2 scale-transition scale-out">
-          <div class="card-content white-text">
-            <span class="card-title">Hantera Rekrytering:</span>
-            <p>
-              Lägg till eller ta bort jobbeskrivningar som visas på "Jobba Hos Oss" sidan.
-              Klicka in på någon av knapparna nedan för att gå vidare.
-            </p>
-          </div>
-          <div class="card-action">
-            <a href="../new-job-search/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> Lägg Till Roll </button></a>
-            <a href="../delete-job-search/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> Radera Roll  </button></a>
+            <a href="../new-account/"><button style="margin: 10px;" class="btn green waves-effect waves-light hoverable"> CREATE </button></a>
+            <a href="../delete-account/"><button style="margin: 10px;" class="btn red waves-effect waves-light hoverable"> DELETE </button></a>
           </div>
         </div>
 
     '; } ?>
         <div class="col s12 center">
           <a href="../../">
-            <button class="btn blue waves-effect waves-light hoverable">
+            <button class="btn btn-inverted waves-effect waves-light hoverable">
               <i class="fas fa-home"></i> &nbsp;
-              <span style="position:relative; top: -1px">Till Hemsidan</span>
+              <span style="position:relative; top: -1px">BACK TO WEBPAGE</span>
             </button>
           </a>
           <br/><br/>
           <form method="POST" action="../../php/logout.php">
             <button type="submit" class="btn red waves-effect waves-light hoverable">
-              <span style="position:relative; top: -2px">Logga Ut</span>
+              <span style="position:relative; top: -2px">LOGOUT</span>
               &nbsp;<i class="fas fa-sign-out-alt"></i>
             </button>
           </form>

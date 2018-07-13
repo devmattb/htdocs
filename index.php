@@ -392,7 +392,7 @@
 
           <nav class="white hide-on-small-only">
             <div class="nav-wrapper black-text">
-              <div class="col s12" style="">
+              <div class="col s12 black-text">
                 <a href="#!" class="breadcrumb evalTitle" name="1">ANALYZE</a>
                 <a href="#!" class="breadcrumb orgTitle" name="2">ORGANIZE</a>
                 <a href="#!" class="breadcrumb execTitle" name="3">EXECUTE</a>

@@ -184,6 +184,36 @@
       });
     </script>
   <?php
+} else if ( $_SESSION["error"] == 20 ) {
+              ?>
+      <script>
+        $(document).ready(function(){
+          errorToastHTML +=
+            `I'm sorry, I wasn't able to remove you from the newsletter, the link you followed was broken! Please try again, or contact me so I can resolve this issue. </span>`;
+          M.toast({html: errorToastHTML, classes: 'red'}, 30000);
+        });
+      </script>
+    <?php
+  } else if ( $_SESSION["error"] == 21 ) {
+    ?>
+    <script>
+      $(document).ready(function(){
+        toastHTML +=
+          `I've successfully removed you from the newsletter! </span>`;
+        M.toast({html: toastHTML, classes: 'white'}, 20000);
+      });
+    </script>
+  <?php
+  } else if ( $_SESSION["error"] == 22 ) {
+            ?>
+    <script>
+      $(document).ready(function(){
+        errorToastHTML +=
+          `I've failed to remove you from the newsletter. Please try again, or contact me so I can resolve this issue.</span>`;
+        M.toast({html: errorToastHTML, classes: 'red'}, 25000);
+      });
+    </script>
+  <?php
       }
     }
     unset($_SESSION["error"]); // Error has been displayed.

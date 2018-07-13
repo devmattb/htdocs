@@ -29,7 +29,7 @@
   }
 
   // If user already exists in newsletter table, don't add them again!
-  if( !$verified ) {
+  if( $verified ) {
     $_SESSION["error"] = 19;
     // Send home
     header("Location: ../");

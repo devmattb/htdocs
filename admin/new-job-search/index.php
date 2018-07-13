@@ -35,8 +35,6 @@
 </head>
 
 <body>
-  <!-- PRELOADER -->
-  <?php include("../../includes/preloader.html") ?>
 
   <!-- Page Content -->
   <main>
@@ -44,35 +42,35 @@
       <div class="col s12">
       <br/><br/><br/><br/>
       <form action="../../php/new-job.php" method="post" enctype="multipart/form-data" class="col s10 offset-s1">
-        <h4 style="margin-left: 10px;"> Publicera en ny rollansökan! </h4>
+        <h4 style="margin-left: 10px;"> Publish a New Job Search! </h4>
         <br/>
 
         <!-- Jobbtitel: -->
         <div class="input-field col s12">
-          <input name="jobTitle" placeholder="Ex. Systemutvecklare" id="jobTitle" type="text">
-          <label for="jobTitle">Jobbtitel</label>
+          <input name="jobTitle" placeholder="E.g. Social Media Manager" id="jobTitle" type="text">
+          <label for="jobTitle">Job Title</label>
         </div>
 
         <!-- Inledningstext: -->
         <div class="input-field col s12">
-          <textarea name="jobText" id="jobText" placeholder="Kort beskrivning..." class="materialize-textarea"></textarea>
-          <label for="jobText">Kort Jobbeskrivning</label>
+          <textarea name="jobText" id="jobText" placeholder="Short description..." class="materialize-textarea"></textarea>
+          <label for="jobText">Short Job Description</label>
         </div>
 
-        <div class="col s12"><p><b> Separera de sökta kvalitéerna/erfarenheterna med komma ( , ) i fältet nedan: </b></p> </div> <br/>
+        <div class="col s12"><p><b> Required Experience: Seperate the sought experience/qualities with commas ( , ) in the field below. </b></p> </div> <br/>
         <!-- Erfarenheter -->
         <div class="input-field col s12">
-          <input name="jobQualifications" placeholder="Ex. IT Kunnnig, Examen inom Systemutveckling, m.m." id="jobQualifications" type="text">
-          <label for="jobQualifications">Kvalitélista</label>
+          <input name="jobQualifications" placeholder="E.g. Social Media Expert, Language Specialist, etc." id="jobQualifications" type="text">
+          <label for="jobQualifications">Quality List</label>
         </div>
 
         <div class="input-field col s12">
-          <textarea name="jobLongText" id="jobLongText" placeholder="Beskrivning... (EJ OBLIGATORISK)" class="materialize-textarea"></textarea>
-          <label for="jobLongText">Djupare Beskrivning (EJ OBLIGATORISK)</label>
+          <textarea name="jobLongText" id="jobLongText" placeholder="Description... (NOT MANDATORY)" class="materialize-textarea"></textarea>
+          <label for="jobLongText">Long Description (NOT MANDATORY)</label>
         </div>
 
         <div class="col s12">
-          <button type="submit" class="btn blue"> Lägg till roll! </button>
+          <button type="submit" class="btn webOrange"> PUBLISH! </button>
         </div>
       </form>
 

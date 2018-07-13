@@ -14,7 +14,7 @@
     return;
   }
 
-  $id = $_GET["id"];
+  $id = getSecureData($_GET["id"]);
 
   $sql = "DELETE FROM adminAccounts WHERE id=$id";
 

@@ -21,7 +21,7 @@
   <script>
 
       $(document).ready(function(){
-
+        window.setTimeout(function(){$(".scale-transition").removeClass("scale-out");},200);
         // Init
         $("#videoNavItem").css("border-bottom", "2px solid #F93822");
         $(".projectBox").hover(
@@ -75,6 +75,7 @@
       <div class="col s9 row center hide-on-small-only">
 
         <!-- PROJECT ITEM #1 LARGE/MEDIUM -->
+        <div class="scale-transition scale-out">
         <a target="_blank" href="https://www.youtube.com/watch?v=gGQkJgs3py0&list=PLwmkNMsjdPSy_gvrmvATntoAys-5q7NaP&index=1">
             <div class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
                 <h3 style="top: 45px;" class="center">
@@ -85,8 +86,10 @@
                 </div>
             </div>
         </a>
+      </div>
 
         <!-- PROJECT ITEM #2 LARGE/MEDIUM -->
+        <div class="scale-transition scale-out">
         <a target="_blank" href="https://www.youtube.com/watch?v=qfeb5Oxp2IY&list=PLwmkNMsjdPSy_gvrmvATntoAys-5q7NaP&index=4">
             <div class="col s10 l5 projectBox z-depth-4 orangeOpacity parallax-container">
                 <h3 style="top: 45px;" class="center">
@@ -98,12 +101,14 @@
             </div>
         </a>
       </div>
+      </div>
 
       <div class="col s1 hide-on-small-only"></div><!-- DUMMY -->
 
       <div class="col s12 row center hide-on-med-and-up">
 
         <!-- PROJECT ITEM #1 SMALL -->
+        <div class="scale-transition scale-out">
         <a target="_blank" href="https://www.youtube.com/watch?v=gGQkJgs3py0&list=PLwmkNMsjdPSy_gvrmvATntoAys-5q7NaP&index=1">
             <div style="height: 250px" class="col s12 projectBoxSmall orangeOpacitySmall z-depth-4 parallax-container">
                 <h3 style="top: 70px;" class="center">
@@ -114,8 +119,10 @@
                 </div>
             </div>
         </a>
+      </div>
 
         <!-- PROJECT ITEM #2 SMALL -->
+        <div class="scale-transition scale-out">
         <a target="_blank" href="https://www.youtube.com/watch?v=qfeb5Oxp2IY&list=PLwmkNMsjdPSy_gvrmvATntoAys-5q7NaP&index=4">
             <div style="height: 250px" class="col s12 projectBoxSmall orangeOpacitySmall z-depth-4 parallax-container">
                 <h3 style="top: 70px;" class="center">
@@ -126,6 +133,7 @@
                 </div>
             </div>
         </a>
+      </div>
 
       </div>
 

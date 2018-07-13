@@ -39,7 +39,7 @@
 
       $(document).ready(function(){
         // Init
-        window.setTimeout(function(){$(".scale-transition").removeClass("scale-out");},300);
+        window.setTimeout(function(){$(".scale-transition").removeClass("scale-out");},200);
         $("#caseNavItem").css("border-bottom", "2px solid #F93822");
         $(".projectBox").hover(
           function() {
@@ -69,16 +69,16 @@
 
             <!-- LARGE -->
             <h1 class="center hide-on-med-and-down">
-              Case:
+              CASE:
             </h1>
 
             <h1 style="font-size: 35px;" class="center hide-on-large-only hide-on-small-only">
-              Case:
+              CASE:
             </h1>
 
             <!-- SMALL -->
             <h1 style="font-size: 26px;" class="center hide-on-med-and-up">
-              Case:
+              CASE:
             </h1>
 
         </div>
