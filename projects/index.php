@@ -475,12 +475,12 @@
                                     $vidImgSrc = $videoCoverImg3;
                                   }
                                   echo '
-                                  <div class="col l12 m8 s12 row center hide-on-small-only">
+                                  <div class="col l3 m12 s12 row center hide-on-small-only">
 
                                       <!-- LARGE/MEDIUM -->
                                       <a target="_blank" href="'.$vidLink.'">
 
-                                          <div style="height: 230px" class="col m12 l4 projectBox z-depth-4 orangeOpacity parallax-container">
+                                          <div style="height: 230px" class="col m12 l12 projectBox z-depth-4 orangeOpacity parallax-container">
                                               <h3 style="top: 30%;" class="center">
                                                   '.$vidTitle.'
                                               </h3>
@@ -493,7 +493,7 @@
                                     </div>
                                     <div class="col s1 hide-on-small-only"></div><!-- DUMMY -->
 
-                                    <div class="col s12 center hide-on-med-and-up">
+                                    <div class="col s12 row center hide-on-med-and-up">
 
                                         <a target="_blank" href="'.$vidLink.'">
                                           <div style="height: 100px" class="col s12 projectBoxSmall z-depth-4 parallax-container">
@@ -506,15 +506,18 @@
                                               </div>
                                           </div>
                                         </a>
-
+                                    </div>
                                   ';
+                                  if ($i == $numVids) {
+                                    echo '</div>';
+                                  }
                                 } // End of for-loop
                               }
 
          // Echo closing tags...
          echo '
-                            </div>
-                        </div>
+
+
                     </div>
               </div>
               <div style="margin-top: 30px;" class="col s12 center">

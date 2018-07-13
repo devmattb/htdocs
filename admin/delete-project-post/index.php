@@ -58,9 +58,21 @@
                   <?php echo $title ?>
                 </div>
                 <?php
+                  // Get numVids...
+                  $numVids = 0;
+                  if (isset($row["videoLink1"])) {
+                    $numVids++;
+                  }
+                  if (isset($row["videoLink2"])) {
+                    $numVids++;
+                  }
+                  if (isset($row["videoLink3"])) {
+                    $numVids++;
+                  }
+
                   if ( !isset($row["videoLink3"]) ) {
                     echo '
-                    <form class="col s12 offset-l8 offset-m4 offset-s2 right" action="../add-video-to-project-post/?id='.$id.'" method="post" enctype="multipart/form-data" >
+                    <form class="col s12 offset-l8 offset-m4 offset-s2 right" action="../add-video-to-project-post/?id='.$id.'&numVids='.$numVids.'" method="post" enctype="multipart/form-data" >
                       <button type="submit" style="margin-top: 0px;" class="right btn waves-effect waves-light green hoverable">
                         VIDEO+
                       </button>

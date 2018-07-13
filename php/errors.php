@@ -171,7 +171,7 @@
         <script>
             $(document).ready(function(){
               toastHTML +=
-                `TODOOOOOOOOOOO</span>`;
+                `I successfully added the video to the post!</span>`;
               M.toast({html: toastHTML, classes: 'white'}, 15000);
             });
         </script>

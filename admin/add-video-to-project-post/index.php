@@ -28,7 +28,7 @@
 
   <!-- Error Handling visualization -->
   <?php include("../../php/errors.php"); ?>
-  <?php $formLink = "../../php/add-video-to-project-post.php?id=".$_GET["id"]; ?>
+  <?php $formLink = "../../php/add-video-to-project-post.php?id=".$_GET["id"]."&numVids=".$_GET["numVids"]; ?>
 
 </head>
 
@@ -45,7 +45,7 @@
 
           <!-- Video Title: -->
           <div class="input-field col s12">
-            <input name="videoTitle" placeholder="Post Title..." id="videoTitle" type="text">
+            <input name="videoTitle" placeholder="Video Title..." id="videoTitle" type="text">
             <label for="videoTitle">Video Title</label>
           </div>
 
