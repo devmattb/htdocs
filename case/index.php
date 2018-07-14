@@ -110,7 +110,7 @@
             <div class="card-stacked">
               <div class="card-content">
                 <span class="card-title webTextOrange"><b><?php echo $title ?></b></span>
-                <p><?php echo $text?></p>
+                <p><?php echo html_entity_decode($text)?></p>
               </div>
               <?php
                   if (isset($demoLink)) {
@@ -132,8 +132,8 @@
             </div>
             <div class="card-stacked">
               <div class="card-content">
-                <span class="card-title"><b><?php echo $title ?></b></span>
-                <p><?php echo $text?></p>
+                <span class="card-title webTextOrange"><b><?php echo $title ?></b></span>
+                <p><?php echo html_entity_decode($text)?></p>
               </div>
               <?php
                 if ( isset($demoLink)) {

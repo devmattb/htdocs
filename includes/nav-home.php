@@ -72,13 +72,13 @@
         </a>
     </li>
     <li>
-        <a href="#newsletterModal">
+        <a class="modal-trigger" href="#newsletterModal">
             <i class="fas fa-newspaper webTextOrange" aria-hidden="true"></i>
             NEWSLETTER
         </a>
       </li>
     <li>
-        <a href="#contactModal">
+        <a class="modal-trigger" href="#contactModal">
             <i class="fas fa-comment webTextOrange" aria-hidden="true"></i>
             CONTACT
         </a>

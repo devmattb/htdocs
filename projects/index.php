@@ -377,7 +377,7 @@
                         <div class="col s10 offset-s1">
 
                             <p class="flow-text">
-                                '.$whatText.'
+                                '.html_entity_decode($whatText).'
                             </p>
 
                         </div>
@@ -403,7 +403,7 @@
                         <div class="col s10 offset-s1">
 
                             <p class="flow-text">
-                                '.$whyText.'
+                                '.html_entity_decode($whyText).'
                             </p>
 
                         </div>
@@ -428,7 +428,7 @@
                         <div class="col s10 offset-s1">
 
                             <p class="flow-text">
-                                '.$howText.'
+                                '.html_entity_decode($howText).'
                             </p>
 
                         </div>

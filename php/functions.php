@@ -14,11 +14,20 @@
     *   Starts a database connection with some static parameters.
     **/
     function getDB() {
+
+        // ONLINE login details:
+        $username = "devmattbMYSQL";
+        $password = "q}hfSZpEQ)X";
+
+        // LOCAL login details:
+        //$username = "root";
+        //$password = "";
+
+        // STANDARD details:
         $servername = "localhost";
         $dbName = 'devmattbDB';
         $port = 3306;
-        $username = "root";
-        $password = "";
+
 
         try {
             $conn = new PDO("mysql:host=$servername;dbname=$dbName;charset=utf8", $username, $password);
